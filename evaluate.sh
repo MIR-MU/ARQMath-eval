@@ -9,7 +9,7 @@ cat > README-head.md << EOT
 EOT
 for USER in */
 do
-  cd "$USER" 
+  cd $USER
   cat > README-head.md << EOT
 | nDCG | Result name |
 |------|:------------|
@@ -18,20 +18,21 @@ EOT
   do
     NDCG=$(../../trec_eval/trec_eval ../qrel.V0.1.tsv "$RESULT" -m ndcg | awk '{ print $3 }')
     cat >> ../README-tail.md << EOT
-| ${USER%/} | $NDCG | ${RESULT%.tsv} |
+| [${USER%/}](https://gitlab.fi.muni.cz/$USER) | $NDCG | $(printf '%s\n' "${RESULT%.tsv}" | sed 's/_/, /g') |
 EOT
     cat >> README-tail.md << EOT
-| $NDCG | $RESULT |
+| $NDCG | $(printf '%s\n' "${RESULT%.tsv}" | sed 's/_/, /g') |
 EOT
   done
-  cd ..
-  (cat README-head.md; sort -k 2 -k 4 README-tail.md) > README.md
+  (cat README-head.md && sort -k 2 -k 4 README-tail.md) > README.md
   rm README-head.md README-tail.md
   git add README.md
+  cd ..
 done
-(cat README-head.md; sort -k 4 -k 2 -k 6 README-tail.md) > README.md
+(cat README-head.md && sort -k 4 -k 2 -k 6 README-tail.md) > README.md
 rm README-head.md README-tail.md
 git add README.md
+cd ..
 
 if ! git diff --quiet
 then
