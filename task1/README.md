@@ -1,6 +1,6 @@
 | User | nDCG | Result name |
 |:-----|------|:------------|
-| ayetiran | 0.5181 | example_key1=key1_key2=value2_etc |
-| xluptak4 | 0.5181 | example_key1=key1_key2=value2_etc |
-| xnovot32 | 0.5181 | example_key1=key1_key2=value2_etc |
-| xstefan3 | 0.5181 | example_key1=key1_key2=value2_etc |
+| [ayetiran](https://gitlab.fi.muni.cz/ayetiran/) | 0.5181 | example, key1=key1, key2=value2, etc |
+| [xluptak4](https://gitlab.fi.muni.cz/xluptak4/) | 0.5181 | example, key1=key1, key2=value2, etc |
+| [xnovot32](https://gitlab.fi.muni.cz/xnovot32/) | 0.5181 | example, key1=key1, key2=value2, etc |
+| [xstefan3](https://gitlab.fi.muni.cz/xstefan3/) | 0.5181 | example, key1=key1, key2=value2, etc |
