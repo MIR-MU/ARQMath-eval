@@ -2,8 +2,11 @@
 set -e
 shopt -s nullglob
 
-[[ -e trec_eval ]] || git clone https://github.com/usnistgov/trec_eval
-make -j -C trec_eval
+if [[ ! -e trec_eval ]]
+then
+  git clone https://github.com/usnistgov/trec_eval
+  make -j -C trec_eval
+fi
 
 cd task1
 # summary task 1 table header
@@ -45,6 +48,6 @@ cd ..
 
 if ! git diff --quiet --staged
 then
-  git commit -m 'Update result tables'
-  git push
+  git commit -m 'Update result tables' --quiet
+  git push --quiet
 fi
