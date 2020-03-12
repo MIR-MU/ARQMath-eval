@@ -2,6 +2,9 @@
 set -e
 shopt -s nullglob
 
+[[ -e trec_eval ]] || git clone https://github.com/usnistgov/trec_eval
+make -j -C trec_eval
+
 cd task1
 # summary task 1 table header
 cat > README-head.md << EOT
