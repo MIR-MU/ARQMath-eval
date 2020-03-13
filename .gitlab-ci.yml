@@ -1,9 +1,9 @@
 stages:
     - evaluate
 
-evaluate:
+run_evaluate:
     image: ubuntu:18.04
-    stage: prepare_env
+    stage: evaluate
     script:
         - apt install -y build-essential make git
         - git clone https://github.com/usnistgov/trec_eval.git
