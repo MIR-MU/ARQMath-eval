@@ -1,7 +1,7 @@
 stages:
-    - prepare_env
+    - evaluate
 
-set_up_container:
+evaluate:
     image: ubuntu:18.04
     stage: prepare_env
     script:
@@ -9,3 +9,5 @@ set_up_container:
         - git clone https://github.com/usnistgov/trec_eval.git
         - make -j -C trec_eval
         - ./evaluate.sh
+    tags:
+        - submission
