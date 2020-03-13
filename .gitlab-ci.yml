@@ -10,4 +10,4 @@ run_evaluate:
         - make -j -C trec_eval
         - ./evaluate.sh
     tags:
-        - submission
+        - mir
