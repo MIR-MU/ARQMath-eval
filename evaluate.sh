@@ -54,5 +54,10 @@ cd ..
 if ! git diff --quiet --staged
 then
   git commit -m 'Update result tables' --quiet
-  git push --quiet
+  if ! git push --quiet
+  then
+    git fetch
+    git rebase master
+    printf 'Failed to git push\n >&2'
+    exit 1
 fi
