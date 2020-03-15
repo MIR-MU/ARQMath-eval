@@ -60,4 +60,5 @@ then
     git rebase master
     printf 'Failed to git push\n >&2'
     exit 1
+  fi
 fi
