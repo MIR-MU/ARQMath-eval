@@ -51,7 +51,7 @@ rm README-head.md README-tail.md
 git add README.md
 cd ..
 
-if ! git diff --staged
+if ! git diff --staged --quiet
 then
   git commit -m 'Update result tables' --quiet
   if ! git push --quiet
