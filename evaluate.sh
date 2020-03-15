@@ -39,7 +39,7 @@ EOT
     # summary task 1 table header
     head -1 | while read LINE
     do
-      printf '%s%s\n' "| [${USER%/}](https://gitlab.fi.muni.cz/$USER) " "$LINE"
+      printf '%s%s\n' "| [${USER%/}]($USER) " "$LINE"
     done >> ../README-tail.md
   )) > README.md
   rm README-head.md README-tail.md
