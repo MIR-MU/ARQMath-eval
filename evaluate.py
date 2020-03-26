@@ -19,7 +19,7 @@ This table contains the best result for every user.
 |:-----|------|:------------|
 '''.strip()
 USER_README_HEAD = r'''
-This table contains all results for $USER in descending order of task
+This table contains all results for user *%s* in descending order of task
 performance.  Result names are based on the filenames of the results with
 underscores (`_`) replaced with a comma and a space for improved readability.
 
@@ -52,7 +52,7 @@ if __name__ == '__main__':
             best_ndcg, best_result_name = max(user_results)
             task_results.append((best_ndcg, user_name, best_result_name))
             with open(os.path.join(user, 'README.md'), 'wt') as f:
-                f.write(USER_README_HEAD)
+                f.write(USER_README_HEAD % user_name)
                 f.write('\n')
                 for ndgc, result_name in sorted(user_results, reverse=True):
                     f.write('| %.4f | %s |\n' % (ndcg, result_name))
