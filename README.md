@@ -2,7 +2,7 @@
 This repository evaluates the performance of your information retrieval system
 on a number of *tasks*:
 
-- task1 -- [ARQMath Task1: Find Answers][arqmath-task1]
+- task1/ – [ARQMath Task1: Find Answers][arqmath-task1]
 
 Place your results in [the trec\_eval format][treceval-format] into your
 dedicated directory *task/user*. To evaluate and publish your results,
