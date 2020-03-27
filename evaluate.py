@@ -8,9 +8,10 @@ import numpy as np
 from pytrec_eval import RelevanceEvaluator, parse_qrel, parse_run
 
 
-TASKS = ['task1']
 RELEVANCE_JUDGEMENTS = {
-    'task1': 'qrel.V0.1.tsv',      
+    'task1': 'qrel.V0.1.tsv',
+    'ntcir-11-math-2-main': 'NTCIR11_Math-qrels.dat',
+    'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg.dat',
 }
 TASK_README_HEAD = r'''
 This table contains the best result for every user.
@@ -29,8 +30,8 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 
 
 if __name__ == '__main__':
-    for task in TASKS:
-        with open(os.path.join(task, RELEVANCE_JUDGEMENTS[task]), 'rt') as f:
+    for task, relevance_judgements in RELEVANCE_JUDGEMENTS.items():
+        with open(os.path.join(task, relevance_judgements), 'rt') as f:
             parsed_relevance_judgements = parse_qrel(f)
         evaluator = RelevanceEvaluator(parsed_relevance_judgements, {'ndcg'})
         task_results = []
