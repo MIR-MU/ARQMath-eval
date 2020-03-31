@@ -9,7 +9,7 @@ from pytrec_eval import RelevanceEvaluator, parse_qrel, parse_run
 
 
 RELEVANCE_JUDGEMENTS = {
-    'task1': 'qrel.V0.1.tsv',
+    'task1': 'qrel.V0.1-test.tsv',
     'ntcir-11-math-2-main': 'NTCIR11_Math-qrels-test.dat',
     'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-test.dat',
 }
