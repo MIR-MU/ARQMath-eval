@@ -5,6 +5,7 @@ on a number of *tasks*:
 - `task1/` – [ARQMath Task1][arqmath-task1]  validation dataset,
 - `ntcir-11-math-2-main/` – [NTCIR-11 Math-2 Task Main Subtask][ntcir-11-math-2], and
 - `ntcir-12-mathir-arxiv-main/` – [NTCIR-12 MathIR Task ArXiv Main Subtask][ntcir-12-mathir].
+- `ntcir-12-mathir-math-wiki-formula/` – [NTCIR-12 MathIR Task MathWikiFormula Subtask][ntcir-12-mathir].
 
 Place your results in [the trec\_eval format][treceval-format] into your
 dedicated directory *task/user*. To evaluate and publish your results,
