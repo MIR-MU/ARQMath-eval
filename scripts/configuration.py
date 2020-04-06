@@ -1,9 +1,8 @@
-RELEVANCE_JUDGEMENTS = {
-    'task1': 'qrel.V1.0-test.tsv',
-    'ntcir-11-math-2-main': 'NTCIR11_Math-qrels-test.dat',
-    'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-test.dat',
-    'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-test.dat',
-}
+import os.path
+
+from pytrec_eval import parse_qrel, RelevanceEvaluator
+
+
 TASK_README_HEAD = r'''
 This table contains the best result for every user.
 
@@ -18,3 +17,30 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 | nDCG | Result name |
 |------|:------------|
 '''.strip()
+RELEVANCE_JUDGEMENTS = {
+    'train': {
+        'task1': 'qrel.V1.0-train.tsv',
+        'ntcir-11-math-2-main': 'NTCIR11_Math-qrels-train.dat',
+        'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-train.dat',
+        'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-train.dat',
+    },
+    'test': {
+        'task1': 'qrel.V1.0-test.tsv',
+        'ntcir-11-math-2-main': 'NTCIR11_Math-qrels-test.dat',
+        'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-test.dat',
+        'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-test.dat',
+    },
+}
+TASKS = list(RELEVANCE_JUDGEMENTS['test'].keys())
+PARSED_RELEVANCE_JUDGEMENTS = {}
+for subset, filenames in RELEVANCE_JUDGEMENTS.items():
+    PARSED_RELEVANCE_JUDGEMENTS[subset] = {}
+    for task, filename in filenames.items():
+        relevance_judgements_filename = os.path.join(
+            os.path.dirname(__file__),
+            RELEVANCE_JUDGEMENTS[subset][task],
+        )
+        with open(relevance_judgements_filename, 'rt') as f:
+            parsed_relevance_judgements = parse_qrel(f)
+        evaluator = RelevanceEvaluator(parsed_relevance_judgements, {'ndcg'})
+        PARSED_RELEVANCE_JUDGEMENTS[subset][task] = evaluator
