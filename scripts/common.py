@@ -8,8 +8,8 @@ from .configuration import EVALUATORS, PARSED_RELEVANCE_JUDGEMENTS
 
 
 def remove_nonjudged_topics_and_documents(parsed_run, task, subset):
-    only_judged_parsed_run = deepcopy(parsed_run)
     parsed_relevance_judgements = PARSED_RELEVANCE_JUDGEMENTS[subset][task]
+    only_judged_parsed_run = deepcopy(parsed_run)
     for topic_name, results in parsed_run.items():
         if topic_name not in parsed_relevance_judgements:
             del only_judged_parsed_run[topic_name]
