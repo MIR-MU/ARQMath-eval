@@ -13,7 +13,7 @@ execute the following commands:
 
 ``` sh
 $ git add task/user/result.tsv     # track your new result with Git
-$ pip install -r requirements.txt  # run the evaluation
+$ pip install -e .                 # run the evaluation
 $ python -m scripts.evaluate
 $ git add -u                       # add the updated leaderboard to Git
 $ git push                         # publish your new result and the updated leaderboard

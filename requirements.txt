@@ -1,2 +1,0 @@
-numpy~=1.18.2
-pytrec-eval~=0.4
