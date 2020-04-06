@@ -33,9 +33,5 @@ def ndcg(parsed_run, task='task1', subset='train'):
     evaluator = EVALUATORS[subset][task]
     only_judged_parsed_run = remove_nonjudged_topics_and_documents(parsed_run, task, subset)
     evaluation = evaluator.evaluate(only_judged_parsed_run)
-    ndcg = np.mean([
-        measures['ndcg']
-        for topic, measures
-        in evaluation.items()
-    ])
+    ndcg = np.mean([measures['ndcg'] for topic, measures in evaluation.items()])
     return ndcg
