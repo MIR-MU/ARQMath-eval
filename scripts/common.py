@@ -7,7 +7,7 @@ import numpy as np
 from .configuration import EVALUATORS, PARSED_RELEVANCE_JUDGEMENTS
 
 
-def ndcg(parsed_run, task='task1', subset='test'):
+def ndcg(parsed_run, task='task1', subset='train'):
     only_judged_parsed_run = deepcopy(parsed_run)
     parsed_relevance_judgements = PARSED_RELEVANCE_JUDGEMENTS[subset][task]
     for topic_name, results in parsed_run.items():

@@ -21,7 +21,7 @@ if __name__ == '__main__':
                 result_name = re.sub('_', ', ', os.path.basename(result)[:-4])
                 with open(result, 'rt') as f:
                     parsed_result = parse_run(f)
-                user_results.append((ndcg(parsed_result, task), result_name))
+                user_results.append((ndcg(parsed_result, task, 'test'), result_name))
             best_ndcg, best_result_name = max(user_results)
             task_results.append((best_ndcg, user_name, best_result_name))
             with open(os.path.join(user, 'README.md'), 'wt') as f:
