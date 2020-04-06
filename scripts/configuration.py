@@ -33,8 +33,10 @@ RELEVANCE_JUDGEMENTS = {
 }
 TASKS = list(RELEVANCE_JUDGEMENTS['test'].keys())
 PARSED_RELEVANCE_JUDGEMENTS = {}
+EVALUATORS = {}
 for subset, filenames in RELEVANCE_JUDGEMENTS.items():
     PARSED_RELEVANCE_JUDGEMENTS[subset] = {}
+    EVALUATORS[subset] = {}
     for task, filename in filenames.items():
         relevance_judgements_filename = os.path.join(
             os.path.dirname(__file__),
@@ -43,4 +45,5 @@ for subset, filenames in RELEVANCE_JUDGEMENTS.items():
         with open(relevance_judgements_filename, 'rt') as f:
             parsed_relevance_judgements = parse_qrel(f)
         evaluator = RelevanceEvaluator(parsed_relevance_judgements, {'ndcg'})
-        PARSED_RELEVANCE_JUDGEMENTS[subset][task] = evaluator
+        PARSED_RELEVANCE_JUDGEMENTS[subset][task] = parsed_relevance_judgements
+        EVALUATORS[subset][task] = evaluator
