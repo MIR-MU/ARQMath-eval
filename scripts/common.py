@@ -21,6 +21,14 @@ def remove_nonjudged_topics_and_documents(parsed_run, task, subset):
     return only_judged_parsed_run
 
 
+def get_judged_documents(task='task1'):
+    judged_documents = set()
+    for subset in PARSED_RELEVANCE_JUDGEMENTS.values():
+        for documents in subset[task].values():
+            judged_documents.update(documents)
+    return judged_documents
+
+
 def ndcg(parsed_run, task='task1', subset='train'):
     evaluator = EVALUATORS[subset][task]
     only_judged_parsed_run = remove_nonjudged_topics_and_documents(parsed_run, task, subset)
