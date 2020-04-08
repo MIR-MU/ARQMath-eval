@@ -1,4 +1,13 @@
 # ARQMath-eval
+
+### Install:
+
+```sh
+pip install git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@master
+```
+
+### Description
+
 This repository evaluates the performance of your information retrieval system
 on a number of *tasks*:
 
@@ -6,6 +15,8 @@ on a number of *tasks*:
 - `ntcir-11-math-2-main/` – [NTCIR-11 Math-2 Task Main Subtask][ntcir-11-math-2], and
 - `ntcir-12-mathir-arxiv-main/` – [NTCIR-12 MathIR Task ArXiv Main Subtask][ntcir-12-mathir].
 - `ntcir-12-mathir-math-wiki-formula/` – [NTCIR-12 MathIR Task MathWikiFormula Subtask][ntcir-12-mathir].
+
+### Usage
 
 Place your results in [the trec\_eval format][treceval-format] into your
 dedicated directory *task/user*. To evaluate and publish your results,
