@@ -6,7 +6,7 @@ from setuptools import setup
 setup(
     name='arqmath_eval',
     version='0.0.1',
-    description='Evaluation of ARQMath systens',
+    description='Evaluation of ARQMath systems',
     packages=['arqmath_eval'],
     package_dir={'arqmath_eval': 'scripts'},
     install_requires=[
@@ -23,6 +23,10 @@ setup(
             'NTCIR12_MathWikiFrm-qrels_agg-test.dat',
             'qrel.V1.0-train.tsv',
             'qrel.V1.0-test.tsv',
+            'votes-qrels-train.V1.0.tsv',
+            'votes-qrels-train-train.V1.0.tsv',
+            'votes-qrels-train-validation.V1.0.tsv',
+            'votes-qrels-test.V1.0.tsv',
         ],
     },
     include_package_data=True,

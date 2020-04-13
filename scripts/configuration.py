@@ -20,12 +20,20 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 RELEVANCE_JUDGEMENTS = {
     'train': {
         'task1': 'qrel.V1.0-train.tsv',
+        'task1-votes': 'votes-qrels-train.V1.0.tsv',
         'ntcir-11-math-2-main': 'NTCIR11_Math-qrels-train.dat',
         'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-train.dat',
         'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-train.dat',
     },
+    'train-train': {
+        'task1-votes': 'votes-qrels-train-train.V1.0.tsv',
+    },
+    'train-validation': {
+        'task1-votes': 'votes-qrels-train-validation.V1.0.tsv',
+    },
     'test': {
         'task1': 'qrel.V1.0-test.tsv',
+        'task1-votes': 'votes-qrels-test.V1.0.tsv',
         'ntcir-11-math-2-main': 'NTCIR11_Math-qrels-test.dat',
         'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-test.dat',
         'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-test.dat',

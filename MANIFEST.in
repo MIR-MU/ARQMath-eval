@@ -6,3 +6,7 @@ scripts/NTCIR12_MathWikiFrm-qrels_agg-train.dat
 scripts/NTCIR12_MathWikiFrm-qrels_agg-test.dat
 scripts/qrel.V1.0-train.tsv
 scripts/qrel.V1.0-test.tsv
+scripts/votes-qrels-train.V1.0.tsv
+scripts/votes-qrels-train-train.V1.0.tsv
+scripts/votes-qrels-train-validation.V1.0.tsv
+scripts/votes-qrels-test.V1.0.tsv

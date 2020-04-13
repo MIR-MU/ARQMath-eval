@@ -11,7 +11,8 @@ pip install git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@master
 This repository evaluates the performance of your information retrieval system
 on a number of *tasks*:
 
-- `task1/` – [ARQMath Task1][arqmath-task1]  validation dataset,
+- `task1/` – [ARQMath Task1][arqmath-task1] validation dataset,
+- `task1-votes/` – [ARQMath Task1][arqmath-task1] Math StackExchange [user votes][],
 - `ntcir-11-math-2-main/` – [NTCIR-11 Math-2 Task Main Subtask][ntcir-11-math-2], and
 - `ntcir-12-mathir-arxiv-main/` – [NTCIR-12 MathIR Task ArXiv Main Subtask][ntcir-12-mathir].
 - `ntcir-12-mathir-math-wiki-formula/` – [NTCIR-12 MathIR Task MathWikiFormula Subtask][ntcir-12-mathir].
@@ -34,3 +35,4 @@ $ git push                         # publish your new result and the updated lea
  [treceval-format]: https://stackoverflow.com/a/8175382/657401 (How to evaluate a search/retrieval engine using trec_eval?)
  [ntcir-11-math-2]: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
  [ntcir-12-mathir]: https://www.cs.rit.edu/~rlaz/files/ntcir12-mathir.pdf (NTCIR-12 MathIR Task Overview)
+ [user votes]:      https://gitlab.fi.muni.cz/xnovot32/arqmath-data-preprocessing/-/blob/master/scripts/xml_to_qrels_tsv.py
