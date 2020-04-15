@@ -23,7 +23,10 @@ def remove_nonjudged_topics_and_documents(parsed_run, task, subset):
 
 def get_topics(task='task1-votes', subset=None):
     topics = set()
-    subsets = PARSED_RELEVANCE_JUDGEMENTS.values() if subset is None else [PARSED_RELEVANCE_JUDGEMENTS[subset]]
+    subsets = [
+        PARSED_RELEVANCE_JUDGEMENTS['train'],
+        PARSED_RELEVANCE_JUDGEMENTS['test'],
+    ] if subset is None else [PARSED_RELEVANCE_JUDGEMENTS[subset]]
     for subset in subsets:
         for topic in subset[task].keys():
             topics.add(topic)
@@ -32,11 +35,13 @@ def get_topics(task='task1-votes', subset=None):
 
 def get_judged_documents(task='task1-votes', subset=None, topic=None):
     judged_documents = set()
-    subsets = PARSED_RELEVANCE_JUDGEMENTS.values() if subset is None else [PARSED_RELEVANCE_JUDGEMENTS[subset]]
+    subsets = [
+        PARSED_RELEVANCE_JUDGEMENTS['train'],
+        PARSED_RELEVANCE_JUDGEMENTS['test'],
+    ] if subset is None else [PARSED_RELEVANCE_JUDGEMENTS[subset]]
     for subset in subsets:
         topics = subset[task].values() if topic is None else [subset[task][topic]]
-        for topic in topics:
-            documents = topic.keys()
+        for documents in topics:
             judged_documents.update(documents)
     return judged_documents
 
