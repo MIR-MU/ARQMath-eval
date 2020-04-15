@@ -1,12 +1,12 @@
-scripts/NTCIR11_Math-qrels-train.dat
-scripts/NTCIR11_Math-qrels-test.dat
-scripts/NTCIR12_Math-qrels_agg-train.dat
-scripts/NTCIR12_Math-qrels_agg-test.dat
-scripts/NTCIR12_MathWikiFrm-qrels_agg-train.dat
-scripts/NTCIR12_MathWikiFrm-qrels_agg-test.dat
-scripts/qrel.V1.0-train.tsv
-scripts/qrel.V1.0-test.tsv
-scripts/votes-qrels-train.V1.0.tsv
-scripts/votes-qrels-train-train.V1.0.tsv
-scripts/votes-qrels-train-validation.V1.0.tsv
-scripts/votes-qrels-test.V1.0.tsv
+include scripts/NTCIR11_Math-qrels-train.dat
+include scripts/NTCIR11_Math-qrels-test.dat
+include scripts/NTCIR12_Math-qrels_agg-train.dat
+include scripts/NTCIR12_Math-qrels_agg-test.dat
+include scripts/NTCIR12_MathWikiFrm-qrels_agg-train.dat
+include scripts/NTCIR12_MathWikiFrm-qrels_agg-test.dat
+include scripts/qrel.V1.0-train.tsv
+include scripts/qrel.V1.0-test.tsv
+include scripts/votes-qrels-train.V1.0.tsv
+include scripts/votes-qrels-train-train.V1.0.tsv
+include scripts/votes-qrels-train-validation.V1.0.tsv
+include scripts/votes-qrels-test.V1.0.tsv
