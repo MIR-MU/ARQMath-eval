@@ -1,11 +1,11 @@
 from math import log2
 import unittest
 
-from arqmath_eval import ndcg
+from arqmath_eval import get_ndcg
 
 
 class TestNDCG(unittest.TestCase):
-    def test_best_score(self):
+    def test_best(self):
         parsed_run = {
             'A.78': {
                 '493782':  1.00,
@@ -28,11 +28,11 @@ class TestNDCG(unittest.TestCase):
                 '1282114': 0.15,
             }
         }
-        ndcg_score = ndcg(parsed_run, 'task1', 'test')
-        expected_ndcg_score = 1.0
-        self.assertEqual(expected_ndcg_score, ndcg_score)
+        ndcg = get_ndcg(parsed_run, 'task1', 'test')
+        expected_ndcg = 1.0
+        self.assertEqual(expected_ndcg, ndcg)
 
-    def test_best_score_with_unjudged_topics(self):
+    def test_best_with_unjudged_topics(self):
         parsed_run = {
             'A.78': {
                 '493782':  1.00,
@@ -59,11 +59,11 @@ class TestNDCG(unittest.TestCase):
                 '692232': 0.50,    
             },
         }
-        ndcg_score = ndcg(parsed_run, 'task1', 'test')
-        expected_ndcg_score = 1.0
-        self.assertEqual(expected_ndcg_score, ndcg_score)
+        ndcg = get_ndcg(parsed_run, 'task1', 'test')
+        expected_ndcg = 1.0
+        self.assertEqual(expected_ndcg, ndcg)
 
-    def test_best_score_with_unjudged_documents(self):
+    def test_best_with_unjudged_documents(self):
         parsed_run = {
             'A.78': {
                 '493782':  1.00,
@@ -88,11 +88,11 @@ class TestNDCG(unittest.TestCase):
                 'unjudged_2': 0.05,
             },
         }
-        ndcg_score = ndcg(parsed_run, 'task1', 'test')
-        expected_ndcg_score = 1.0
-        self.assertEqual(expected_ndcg_score, ndcg_score)
+        ndcg = get_ndcg(parsed_run, 'task1', 'test')
+        expected_ndcg = 1.0
+        self.assertEqual(expected_ndcg, ndcg)
 
-    def test_best_score_with_unjudged_topics_and_documents(self):
+    def test_best_with_unjudged_topics_and_documents(self):
         parsed_run = {
             'A.78': {
                 '493782':  1.00,
@@ -121,11 +121,11 @@ class TestNDCG(unittest.TestCase):
                 '692232': 0.50,    
             },
         }
-        ndcg_score = ndcg(parsed_run, 'task1', 'test')
-        expected_ndcg_score = 1.0
-        self.assertEqual(expected_ndcg_score, ndcg_score)
+        ndcg = get_ndcg(parsed_run, 'task1', 'test')
+        expected_ndcg = 1.0
+        self.assertEqual(expected_ndcg, ndcg)
 
-    def test_worst_score(self):
+    def test_worst(self):
         parsed_run = {
             'A.78': {
                 '493782':  0.15,
@@ -148,26 +148,27 @@ class TestNDCG(unittest.TestCase):
                 '1282114': 1.00,
             }
         }
-        ndcg_score = ndcg(parsed_run, 'task1', 'test')
-        dcg_score = 0.0
+        ndcg = get_ndcg(parsed_run, 'task1', 'test')
+
+        expected_dcg = 0.0
         for i in range(1, 3):
-            dcg_score += 0.0 / log2(i + 1)
+            expected_dcg += 0.0 / log2(i + 1)
         for i in range(3, 11):
-            dcg_score += 1.0 / log2(i + 1)
+            expected_dcg += 1.0 / log2(i + 1)
         for i in range(11, 15):
-            dcg_score += 2.0 / log2(i + 1)
+            expected_dcg += 2.0 / log2(i + 1)
         for i in range(15, 19):
-            dcg_score += 3.0 / log2(i + 1)
+            expected_dcg += 3.0 / log2(i + 1)
 
-        idcg_score = 0.0
+        expected_idcg = 0.0
         for i in range(1, 5):
-            idcg_score += 3.0 / log2(i + 1)
+            expected_idcg += 3.0 / log2(i + 1)
         for i in range(5, 9):
-            idcg_score += 2.0 / log2(i + 1)
+            expected_idcg += 2.0 / log2(i + 1)
         for i in range(9, 17):
-            idcg_score += 1.0 / log2(i + 1)
+            expected_idcg += 1.0 / log2(i + 1)
         for i in range(17, 19):
-            idcg_score += 0.0 / log2(i + 1)
+            expected_idcg += 0.0 / log2(i + 1)
 
-        expected_ndcg_score = dcg_score / idcg_score
-        self.assertEqual(expected_ndcg_score, ndcg_score)
+        expected_ndcg = expected_dcg / expected_idcg
+        self.assertEqual(expected_ndcg, ndcg)

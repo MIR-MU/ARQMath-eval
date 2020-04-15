@@ -46,7 +46,7 @@ def get_judged_documents(task='task1-votes', subset=None, topic=None):
     return judged_documents
 
 
-def ndcg(parsed_run, task='task1-votes', subset='train-validation'):
+def get_ndcg(parsed_run, task='task1-votes', subset='train-validation'):
     evaluator = EVALUATORS[subset][task]
     only_judged_parsed_run = remove_nonjudged_topics_and_documents(parsed_run, task, subset)
     evaluation = evaluator.evaluate(only_judged_parsed_run)
