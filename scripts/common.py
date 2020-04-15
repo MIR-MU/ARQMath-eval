@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
 
 from copy import deepcopy
+from itertools import chain
+from math import log2
 
 import numpy as np
 
@@ -46,9 +48,29 @@ def get_judged_documents(task, subset=None, topic=None):
     return judged_documents
 
 
-def get_ndcg(parsed_run, task='task1-votes', subset='train-validation'):
+def get_ndcg(parsed_run, task, subset):
     evaluator = EVALUATORS[subset][task]
     only_judged_parsed_run = remove_nonjudged_topics_and_documents(parsed_run, task, subset)
     evaluation = evaluator.evaluate(only_judged_parsed_run)
     ndcg = np.mean([measures['ndcg'] for topic, measures in evaluation.items()])
     return ndcg
+
+
+def get_random_ndcg(task, subset):
+    judgements = sorted([
+        judgement
+        for subset in PARSED_RELEVANCE_JUDGEMENTS[subset][task].values()
+        for judgement in subset.values()
+    ], reverse=True)
+    expected_judgement = np.mean(judgements)
+
+    random_dcg = 0.0
+    for i in range(len(judgements)):
+        random_dcg += expected_judgement / log2(i + 2)
+
+    ideal_dcg = 0.0
+    for i, judgement in enumerate(judgements):
+        ideal_dcg += judgement / log2(i + 2)
+
+    random_ndcg = random_dcg / ideal_dcg
+    return random_ndcg

@@ -4,7 +4,7 @@ from arqmath_eval import get_judged_documents
 
 
 class TestGetJudgedDocuments(unittest.TestCase):
-    def test_all_subsets_and_all_topics(self):
+    def test_all_subsets_all_topics(self):
         documents = get_judged_documents('task1')
         expected_documents = {
             '48162',

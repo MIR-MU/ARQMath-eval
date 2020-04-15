@@ -4,7 +4,7 @@ import unittest
 from arqmath_eval import get_ndcg
 
 
-class TestNDCG(unittest.TestCase):
+class TestGetNDCG(unittest.TestCase):
     def test_best(self):
         parsed_run = {
             'A.78': {
