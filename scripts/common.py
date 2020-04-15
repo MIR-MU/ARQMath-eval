@@ -21,7 +21,7 @@ def remove_nonjudged_topics_and_documents(parsed_run, task, subset):
     return only_judged_parsed_run
 
 
-def get_topics(task='task1-votes', subset=None):
+def get_topics(task, subset=None):
     topics = set()
     subsets = [
         PARSED_RELEVANCE_JUDGEMENTS['train'],
@@ -33,7 +33,7 @@ def get_topics(task='task1-votes', subset=None):
     return topics
 
 
-def get_judged_documents(task='task1-votes', subset=None, topic=None):
+def get_judged_documents(task, subset=None, topic=None):
     judged_documents = set()
     subsets = [
         PARSED_RELEVANCE_JUDGEMENTS['train'],
