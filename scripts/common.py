@@ -74,3 +74,10 @@ def get_random_ndcg(task, subset):
 
     random_ndcg = random_dcg / ideal_dcg
     return random_ndcg
+
+
+def get_random_normalized_ndcg(parsed_run, task, subset):
+    ndcg = get_ndcg(parsed_run, task, subset)
+    random_ndcg = get_random_ndcg(task, subset)
+    random_normalized_ndcg = (ndcg - random_ndcg) / (1.0 - random_ndcg)
+    return random_normalized_ndcg
