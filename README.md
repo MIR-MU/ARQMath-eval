@@ -1,11 +1,4 @@
 # ARQMath-eval
-
-### Install:
-
-```sh
-pip install git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@master
-```
-
 ### Description
 
 This repository evaluates the performance of your information retrieval system
