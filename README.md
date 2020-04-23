@@ -31,7 +31,7 @@ Each task comes with a number of *subsets*:
   for early stopping).
 
 ### Usage
-#### Evaluating zour model with various parameters
+#### Evaluating your model with various parameters
 Place your results in [the trec\_eval format][treceval-format] into the
 `results.csv` file. To evaluate your results on the train set, execute the
 following commands:
@@ -48,7 +48,7 @@ $ python
 0.5876
 ```
 
-#### Placing zour results to the leaderboard
+#### Placing your results to the leaderboard
 Place your results in [the trec\_eval format][treceval-format] into your
 dedicated directory *task/user*. To evaluate your results on the test set and
 publish the results into the leaderboard, execute the following commands:
