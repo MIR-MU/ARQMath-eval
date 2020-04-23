@@ -10,15 +10,46 @@ on a number of *tasks*:
 - `ntcir-12-mathir-arxiv-main/` – [NTCIR-12 MathIR Task ArXiv Main Subtask][ntcir-12-mathir].
 - `ntcir-12-mathir-math-wiki-formula/` – [NTCIR-12 MathIR Task MathWikiFormula Subtask][ntcir-12-mathir].
 
-### Usage
+Each task comes with a number of *subsets*:
 
+- `train` – the training set, which you should use for parameter optimization
+  before publishing the results for the best parameters of your system,
+- `test` – the test set, which you should use *only for your best system* after
+  parameter optimization on the training set,
+- `train-train` – a subset of the training set for the `task1-votes` task,
+  which you can use for training if you also require a validation subset (e.g.
+  for early stopping), and
+- `train-validation` – a subset of the training set for the `task1-votes` task,
+  which you can use for training if you also require a validation subset (e.g.
+  for early stopping).
+
+### Usage
+#### Evaluating zour model with various parameters
+Place your results in [the trec\_eval format][treceval-format] into the
+`results.csv` file. To evaluate your results on the train set, execute the
+following commands:
+
+``` sh
+$ pip install .
+$ python
+>>> from arqmath_eval import get_ndcg
+>>> from pytrec_eval import parse_run
+>>>
+>>> with open('results.csv', 'rt') as f:
+>>>     results = parse_run(f)
+>>>
+>>> get_ndcg(task='task', subset='train')
+0.5876
+```
+
+#### Placing zour results to the leaderboard
 Place your results in [the trec\_eval format][treceval-format] into your
-dedicated directory *task/user*. To evaluate and publish your results,
-execute the following commands:
+dedicated directory *task/user*. To evaluate your results on the test set and
+publish the results into the leaderboard, execute the following commands:
 
 ``` sh
 $ git add task/user/result.tsv     # track your new result with Git
-$ pip install -e .                 # run the evaluation
+$ pip install .                    # run the evaluation
 $ python -m scripts.evaluate
 $ git add -u                       # add the updated leaderboard to Git
 $ git push                         # publish your new result and the updated leaderboard
