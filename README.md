@@ -44,7 +44,6 @@ $ python
 >>>
 >>> with open('results.csv', 'rt') as f:
 >>>     results = parse_run(f)
->>>
 >>> get_ndcg(task='task', subset='train')
 0.5876
 ```
