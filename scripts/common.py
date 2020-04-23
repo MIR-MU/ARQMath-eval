@@ -9,7 +9,7 @@ import numpy as np
 from .configuration import EVALUATORS, PARSED_RELEVANCE_JUDGEMENTS
 
 
-def remove_nonjudged_topics_and_documents(parsed_run, task, subset):
+def _remove_nonjudged_topics_and_documents(parsed_run, task, subset):
     parsed_relevance_judgements = PARSED_RELEVANCE_JUDGEMENTS[subset][task]
     only_judged_parsed_run = deepcopy(parsed_run)
     for topic_name, results in parsed_run.items():
@@ -24,6 +24,22 @@ def remove_nonjudged_topics_and_documents(parsed_run, task, subset):
 
 
 def get_topics(task, subset=None):
+    """Returns the identifiers of topics for a subset of a task.
+
+    Parameters
+    ----------
+    task : str
+        A task.
+    subset : str or None, optional
+        A subset of the task. If None, topics for all subsets will be returned.
+        Default is None.
+
+    Returns
+    -------
+    topics : set of str
+        The identifiers of topics for the subset of the task.
+
+    """
     topics = set()
     subsets = [
         PARSED_RELEVANCE_JUDGEMENTS['train'],
@@ -36,6 +52,25 @@ def get_topics(task, subset=None):
 
 
 def get_judged_documents(task, subset=None, topic=None):
+    """Returns the judged documents of a topic in a subset of a task.
+
+    Parameters
+    ----------
+    task : str
+        A task.
+    subset : str or None, optional
+        A subset of the task. If None, topics for all subsets will be
+        considered.  Default is None.
+    topic : str or None, optional
+        A topic in the subset of the task. If None, judged documents for
+        all topics will be returned. Default is None.
+
+    Returns
+    -------
+    judged_documents : set of str
+        The judged documents of a topic in the subset of the task.
+
+    """
     judged_documents = set()
     subsets = [
         PARSED_RELEVANCE_JUDGEMENTS['train'],
@@ -49,14 +84,54 @@ def get_judged_documents(task, subset=None, topic=None):
 
 
 def get_ndcg(parsed_run, task, subset):
+    """Returns the NDCG' of a system's run on a subset of a task.
+
+    NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all
+    non-judged documents in the run are disregarded, see
+    https://www.cs.rit.edu/~dprl/ARQMath/, section Ranking metrics.
+
+    Parameters
+    ----------
+    parsed_run : dict of (str, dict of (str, float))
+        The run of an information retrieval system.
+    task : str
+        A task.
+    subset : str
+        A subset of the task.
+
+    Returns
+    -------
+    ndcg : float
+        The NDCG' of the system's run on the subset of the task.
+
+    """
     evaluator = EVALUATORS[subset][task]
-    only_judged_parsed_run = remove_nonjudged_topics_and_documents(parsed_run, task, subset)
+    only_judged_parsed_run = _remove_nonjudged_topics_and_documents(parsed_run, task, subset)
     evaluation = evaluator.evaluate(only_judged_parsed_run)
     ndcg = np.mean([measures['ndcg'] for topic, measures in evaluation.items()])
     return ndcg
 
 
 def get_random_ndcg(task, subset):
+    """Returns the expected NDCG' of a random system on a subset of a task.
+
+    NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all
+    non-judged documents in the run are disregarded, see
+    https://www.cs.rit.edu/~dprl/ARQMath/, section Ranking metrics.
+
+    Parameters
+    ----------
+    task : str
+        A task.
+    subset : str
+        A subset of the task.
+
+    Returns
+    -------
+    ndcg : float
+        The expected NDCG' of a random system on the subset of the task.
+
+    """
     judgements = sorted([
         judgement
         for subset in PARSED_RELEVANCE_JUDGEMENTS[subset][task].values()
@@ -77,6 +152,31 @@ def get_random_ndcg(task, subset):
 
 
 def get_random_normalized_ndcg(parsed_run, task, subset):
+    """Returns the random-normalized NDCG' of a system's run on a subset of a task.
+
+    NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all
+    non-judged documents in the run are disregarded, see
+    https://www.cs.rit.edu/~dprl/ARQMath/, section Ranking metrics.
+
+    The random-normalized NDCG' takes the expected NDCG' of a random system
+    into account. NDCG' of 1.0 is normalized to 1.0, NDCG' of a random system
+    is normalized to 0.0, NDCG' worse that a random system is normalized to 0.0.
+
+    Parameters
+    ----------
+    parsed_run : dict of (str, dict of (str, float))
+        The run of an information retrieval system.
+    task : str
+        A task.
+    subset : str
+        A subset of the task.
+
+    Returns
+    -------
+    ndcg : float
+        The random-normalized NDCG' of the system's run on the subset of the task.
+
+    """
     ndcg = get_ndcg(parsed_run, task, subset)
     random_ndcg = get_random_ndcg(task, subset)
     random_normalized_ndcg = (ndcg - random_ndcg) / (1.0 - random_ndcg)
