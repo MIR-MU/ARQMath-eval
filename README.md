@@ -26,8 +26,8 @@ Each task comes with a number of *subsets*:
 ### Usage
 #### Evaluating your model with various parameters
 Place your results in [the trec\_eval format][treceval-format] into the
-`results.csv` file. To evaluate your results on the train set, execute the
-following commands:
+`results.csv` file. To evaluate your results e.g. on the `train` subset of the
+`task1-votes` task, execute the following commands:
 
 ``` sh
 $ pip install git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@master
@@ -37,21 +37,23 @@ $ python
 >>>
 >>> with open('results.csv', 'rt') as f:
 >>>     results = parse_run(f)
->>> get_ndcg(task='task', subset='train')
+>>> get_ndcg(task='task1-votes', subset='train')
 0.5876
 ```
 
 #### Placing your results to the leaderboard
 Place your results in [the trec\_eval format][treceval-format] into your
-dedicated directory *task/user*. To evaluate your results on the test set and
-publish the results into the leaderboard, execute the following commands:
+dedicated directory *task/user*, e.g. `task1-votes/xnovot32` for the user
+@xnovot32 and the `task1-votes` task. To evaluate your results on the `test`
+set of the `task1-votes` and publish the results into the leaderboard, execute
+the following commands:
 
 ``` sh
-$ git add task/user/result.tsv  # track your new result with Git
+$ git add task1-votes/xnovot32/result.tsv  # track your new result with Git
 $ pip install git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@master
-$ python -m scripts.evaluate    # run the evaluation
-$ git add -u                    # add the updated leaderboard to Git
-$ git push                      # publish your new result and the updated leaderboard
+$ python -m scripts.evaluate               # run the evaluation
+$ git add -u                               # add the updated leaderboard to Git
+$ git push                                 # publish your new result and the updated leaderboard
 ```
 
  [arqmath-task1]:   https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
