@@ -37,7 +37,7 @@ Place your results in [the trec\_eval format][treceval-format] into the
 following commands:
 
 ``` sh
-$ pip install .
+$ pip install git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@master
 $ python
 >>> from arqmath_eval import get_ndcg
 >>> from pytrec_eval import parse_run
@@ -55,11 +55,11 @@ dedicated directory *task/user*. To evaluate your results on the test set and
 publish the results into the leaderboard, execute the following commands:
 
 ``` sh
-$ git add task/user/result.tsv     # track your new result with Git
-$ pip install .                    # run the evaluation
-$ python -m scripts.evaluate
-$ git add -u                       # add the updated leaderboard to Git
-$ git push                         # publish your new result and the updated leaderboard
+$ git add task/user/result.tsv  # track your new result with Git
+$ pip install git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@master
+$ python -m scripts.evaluate    # run the evaluation
+$ git add -u                    # add the updated leaderboard to Git
+$ git push                      # publish your new result and the updated leaderboard
 ```
 
  [arqmath-task1]:   https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
