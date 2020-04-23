@@ -41,6 +41,15 @@ $ python
 0.5876
 ```
 
+Beside `get_ndcg`, the Python interface of the package also provides the
+following functions:
+
+- [`get_topics(task, subset=None)`][get_topics],
+- [`get_judged_documents(task, subset=None, topic=None)`][get_judged_documents],
+- [`get_random_ndcg(task, subset)`][get_random_ndcg],
+- [`get_ndcg(parsed_run, task, subset)`][get_ndcg], and
+- [`get_random_normalized_ndcg(parsed_run, task, subset)`][get_random_ndcg].
+
 #### Placing your results to the leaderboard
 Place your results in [the trec\_eval format][treceval-format] into your
 dedicated directory *task/user*, e.g. `task1-votes/xnovot32` for the user
@@ -56,8 +65,13 @@ $ git add -u                               # add the updated leaderboard to Git
 $ git push                                 # publish your new result and the updated leaderboard
 ```
 
- [arqmath-task1]:   https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
- [treceval-format]: https://stackoverflow.com/a/8175382/657401 (How to evaluate a search/retrieval engine using trec_eval?)
- [ntcir-11-math-2]: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
- [ntcir-12-mathir]: https://www.cs.rit.edu/~rlaz/files/ntcir12-mathir.pdf (NTCIR-12 MathIR Task Overview)
- [user votes]:      https://gitlab.fi.muni.cz/xnovot32/arqmath-data-preprocessing/-/blob/master/scripts/xml_to_qrels_tsv.py
+ [arqmath-task1]:              https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
+ [get_judged_documents]:       https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L54
+ [get_ndcg]:                   https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L86
+ [get_random_ndcg]:            https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L115
+ [get_random_normalized_ndcg]: https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L154
+ [get_topics]:                 https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L26
+ [ntcir-11-math-2]:            http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
+ [ntcir-12-mathir]:            https://www.cs.rit.edu/~rlaz/files/ntcir12-mathir.pdf (NTCIR-12 MathIR Task Overview)
+ [treceval-format]:            https://stackoverflow.com/a/8175382/657401 (How to evaluate a search/retrieval engine using trec_eval?)
+ [user votes]:                 https://gitlab.fi.muni.cz/xnovot32/arqmath-data-preprocessing/-/blob/master/scripts/xml_to_qrels_tsv.py
