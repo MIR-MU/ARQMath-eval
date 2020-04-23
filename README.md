@@ -1,5 +1,5 @@
 ### Description
-
+#### Tasks
 This repository evaluates the performance of your information retrieval system
 on a number of *tasks*:
 
@@ -9,6 +9,7 @@ on a number of *tasks*:
 - `ntcir-12-mathir-arxiv-main/` – [NTCIR-12 MathIR Task ArXiv Main Subtask][ntcir-12-mathir].
 - `ntcir-12-mathir-math-wiki-formula/` – [NTCIR-12 MathIR Task MathWikiFormula Subtask][ntcir-12-mathir].
 
+#### Subsets
 Each task comes with a number of *subsets*:
 
 - `train` – the training set, which you should use for parameter optimization
