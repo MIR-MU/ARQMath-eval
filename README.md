@@ -90,11 +90,11 @@ $ git push                                 # publish your new result and the upd
 ```
 
  [arqmath-task1]:              https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
- [get_judged_documents]:       https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L51
- [get_ndcg]:                   https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L82
- [get_random_ndcg]:            https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L113
- [get_random_normalized_ndcg]: https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L152
- [get_topics]:                 https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L26
+ [get_judged_documents]:       https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L59
+ [get_ndcg]:                   https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L90
+ [get_random_ndcg]:            https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L124
+ [get_random_normalized_ndcg]: https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L169
+ [get_topics]:                 https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L34
  [ntcir-11-math-2]:            http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
  [ntcir-12-mathir]:            https://www.cs.rit.edu/~rlaz/files/ntcir12-mathir.pdf (NTCIR-12 MathIR Task Overview)
  [treceval-format]:            https://stackoverflow.com/a/8175382/657401 (How to evaluate a search/retrieval engine using trec_eval?)

@@ -23,6 +23,14 @@ def _remove_nonjudged_topics_and_documents(parsed_run, task, subset):
     return only_judged_parsed_run
 
 
+def _clip_topn(parsed_run, topn):
+    clipped_parsed_run = {}
+    for topic, documents in parsed_run.items():
+        clipped_documents = sorted(documents.items(), key=lambda x: x[1], reverse=True)[:topn]
+        clipped_parsed_run[topic] = dict(clipped_documents)
+    return clipped_parsed_run
+
+
 def get_topics(task, subset=None):
     """Returns the identifiers of topics for a subset of a task.
 
@@ -79,7 +87,7 @@ def get_judged_documents(task, subset=None, topic=None):
     return judged_documents
 
 
-def get_ndcg(parsed_run, task, subset):
+def get_ndcg(parsed_run, task, subset, topn=1000):
     """Returns the NDCG' of a system's run on a subset of a task.
 
     NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all
@@ -94,6 +102,8 @@ def get_ndcg(parsed_run, task, subset):
         A task.
     subset : str
         A subset of the task.
+    topn : int
+        The top N results, which will be considered in computing the NDCG.
 
     Returns
     -------
@@ -102,15 +112,16 @@ def get_ndcg(parsed_run, task, subset):
 
     """
     evaluator = EVALUATORS[subset][task]
-    only_judged_parsed_run = _remove_nonjudged_topics_and_documents(parsed_run, task, subset)
-    if not only_judged_parsed_run:
+    parsed_run = _remove_nonjudged_topics_and_documents(parsed_run, task, subset)
+    parsed_run = _clip_topn(parsed_run, topn)
+    if not parsed_run:
         return 0.0
-    evaluation = evaluator.evaluate(only_judged_parsed_run)
+    evaluation = evaluator.evaluate(parsed_run)
     ndcg = np.mean([measures['ndcg'] for topic, measures in evaluation.items()])
     return ndcg
 
 
-def get_random_ndcg(task, subset):
+def get_random_ndcg(task, subset, topn=1000):
     """Returns the expected NDCG' of a random system on a subset of a task.
 
     NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all
@@ -123,6 +134,8 @@ def get_random_ndcg(task, subset):
         A task.
     subset : str
         A subset of the task.
+    topn : int
+        The top N results, which will be considered in computing the NDCG.
 
     Returns
     -------
@@ -139,17 +152,21 @@ def get_random_ndcg(task, subset):
 
     random_dcg = 0.0
     for i in range(len(judgements)):
+        if i >= topn:
+            break
         random_dcg += expected_judgement / log2(i + 2)
 
     ideal_dcg = 0.0
     for i, judgement in enumerate(judgements):
+        if i >= topn:
+            break
         ideal_dcg += judgement / log2(i + 2)
 
     random_ndcg = random_dcg / ideal_dcg
     return random_ndcg
 
 
-def get_random_normalized_ndcg(parsed_run, task, subset):
+def get_random_normalized_ndcg(parsed_run, task, subset, topn=1000):
     """Returns the random-normalized NDCG' of a system's run on a subset of a task.
 
     NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all
@@ -168,6 +185,8 @@ def get_random_normalized_ndcg(parsed_run, task, subset):
         A task.
     subset : str
         A subset of the task.
+    topn : int
+        The top N results, which will be considered in computing the NDCG.
 
     Returns
     -------
@@ -175,7 +194,7 @@ def get_random_normalized_ndcg(parsed_run, task, subset):
         The random-normalized NDCG' of the system's run on the subset of the task.
 
     """
-    ndcg = get_ndcg(parsed_run, task, subset)
-    random_ndcg = get_random_ndcg(task, subset)
+    ndcg = get_ndcg(parsed_run, task, subset, topn)
+    random_ndcg = get_random_ndcg(task, subset, topn)
     random_normalized_ndcg = (ndcg - random_ndcg) / (1.0 - random_ndcg)
     return random_normalized_ndcg
