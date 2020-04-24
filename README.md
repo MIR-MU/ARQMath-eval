@@ -53,7 +53,7 @@ Here is the documentation of the available evaluation functions:
 - [`get_judged_documents(task, subset=None, topic=None)`][get_judged_documents],
 - [`get_random_ndcg(task, subset)`][get_random_ndcg],
 - [`get_ndcg(parsed_run, task, subset)`][get_ndcg], and
-- [`get_random_normalized_ndcg(parsed_run, task, subset)`][get_random_ndcg].
+- [`get_random_normalized_ndcg(parsed_run, task, subset)`][get_random_normalized_ndcg].
 
 #### Using the `validation` set to compare various parameters of your system
 
@@ -90,10 +90,10 @@ $ git push                                 # publish your new result and the upd
 ```
 
  [arqmath-task1]:              https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
- [get_judged_documents]:       https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L54
- [get_ndcg]:                   https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L86
- [get_random_ndcg]:            https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L115
- [get_random_normalized_ndcg]: https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L154
+ [get_judged_documents]:       https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L51
+ [get_ndcg]:                   https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L82
+ [get_random_ndcg]:            https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L113
+ [get_random_normalized_ndcg]: https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L152
  [get_topics]:                 https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L26
  [ntcir-11-math-2]:            http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
  [ntcir-12-mathir]:            https://www.cs.rit.edu/~rlaz/files/ntcir12-mathir.pdf (NTCIR-12 MathIR Task Overview)
