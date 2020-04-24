@@ -30,3 +30,23 @@ class TestGetRandomNDCG(unittest.TestCase):
 
         expected_ndcg = expected_dcg / expected_idcg
         self.assertEqual(expected_ndcg, ndcg)
+
+    def test_with_topn(self):
+        ndcg = get_random_ndcg('task1', 'test', 4)
+
+        expected_judgement = (
+            4 * 3.0 +
+            4 * 2.0 +
+            8 * 1.0 +
+            2 * 0.0
+        ) / 18
+        expected_dcg = 0.0
+        for i in range(1, 5):
+            expected_dcg += expected_judgement / log2(i + 1)
+
+        expected_idcg = 0.0
+        for i in range(1, 5):
+            expected_idcg += 3.0 / log2(i + 1)
+
+        expected_ndcg = expected_dcg / expected_idcg
+        self.assertEqual(expected_ndcg, ndcg)

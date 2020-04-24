@@ -102,8 +102,9 @@ def get_ndcg(parsed_run, task, subset, topn=1000):
         A task.
     subset : str
         A subset of the task.
-    topn : int
+    topn : int, optional
         The top N results, which will be considered in computing the NDCG.
+        Default is 1000.
 
     Returns
     -------
@@ -134,8 +135,9 @@ def get_random_ndcg(task, subset, topn=1000):
         A task.
     subset : str
         A subset of the task.
-    topn : int
+    topn : int, optional
         The top N results, which will be considered in computing the NDCG.
+        Default is 1000.
 
     Returns
     -------
@@ -185,8 +187,9 @@ def get_random_normalized_ndcg(parsed_run, task, subset, topn=1000):
         A task.
     subset : str
         A subset of the task.
-    topn : int
+    topn : int, optional
         The top N results, which will be considered in computing the NDCG.
+        Default is 1000.
 
     Returns
     -------

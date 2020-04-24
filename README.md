@@ -51,9 +51,9 @@ Here is the documentation of the available evaluation functions:
 
 - [`get_topics(task, subset=None)`][get_topics],
 - [`get_judged_documents(task, subset=None, topic=None)`][get_judged_documents],
-- [`get_random_ndcg(task, subset)`][get_random_ndcg],
-- [`get_ndcg(parsed_run, task, subset)`][get_ndcg], and
-- [`get_random_normalized_ndcg(parsed_run, task, subset)`][get_random_normalized_ndcg].
+- [`get_random_ndcg(task, subset, topn=1000)`][get_random_ndcg],
+- [`get_ndcg(parsed_run, task, subset, topn=1000)`][get_ndcg], and
+- [`get_random_normalized_ndcg(parsed_run, task, subset, topn=1000)`][get_random_normalized_ndcg].
 
 #### Using the `validation` set to compare various parameters of your system
 
