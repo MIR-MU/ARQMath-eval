@@ -25,11 +25,12 @@ RELEVANCE_JUDGEMENTS = {
         'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-train.dat',
         'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-train.dat',
     },
-    'train-train': {
-        'task1-votes': 'votes-qrels-train-train.V1.0.tsv',
-    },
-    'train-validation': {
-        'task1-votes': 'votes-qrels-train-validation.V1.0.tsv',
+    'validation': {
+        'task1': 'qrel.V1.0-validation.tsv',
+        'task1-votes': 'votes-qrels-validation.V1.0.tsv',
+        'ntcir-11-math-2-main': 'NTCIR11_Math-qrels-validation.dat',
+        'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-validation.dat',
+        'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-validation.dat',
     },
     'test': {
         'task1': 'qrel.V1.0-test.tsv',

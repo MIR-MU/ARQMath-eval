@@ -9,40 +9,45 @@ on a number of *tasks*:
 - `ntcir-12-mathir-arxiv-main` – [NTCIR-12 MathIR Task ArXiv Main Subtask][ntcir-12-mathir].
 - `ntcir-12-mathir-math-wiki-formula` – [NTCIR-12 MathIR Task MathWikiFormula Subtask][ntcir-12-mathir].
 
-#### Subsets
-Each task comes with a number of *subsets*:
+The main tasks are:
 
-- `train` – the training set, which you should use for parameter optimization
-  before publishing the results for the best parameters of your system,
-- `test` – the test set, which you should use *only for your best system* after
-  parameter optimization on the training set,
-- `train-train` – a subset of the training set for the `task1-votes` task,
-  which you can use for training if you also require a validation subset (e.g.
-  for early stopping), and
-- `train-validation` – a subset of the training set for the `task1-votes` task,
-  which you can use for training if you also require a validation subset (e.g.
-  for early stopping).
+- `task1-votes` – Use this task to evaluate your ARQMath task 1 system.
+- `ntcir-12-mathir-math-wiki-formula` – Use this task to evaluate your ARQMath task 2 system.
+
+#### Subsets
+Each task comes with three *subsets*:
+
+- `train` – The training set, which you can use for supervised training of your
+  system.
+- `validation` – The validation set, which you can use to compare the
+  performance of your system with different parameters. The validation set is
+  used to compute the leaderboards in this repository.
+- `test` – The test set, which you currently should not use at all. It will be
+  used at the end to compare the systems, which performed best on the
+  validation set.
 
 ### Usage
-#### Evaluating your model with various parameters
-Place your results in [the trec\_eval format][treceval-format] into the
-`results.csv` file. To evaluate your results e.g. on the `train` subset of the
-`task1-votes` task, execute the following commands:
+#### Using the `train` set to train your supervised system
 
 ``` sh
 $ pip install git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@master
 $ python
->>> from arqmath_eval import get_ndcg
->>> from pytrec_eval import parse_run
+>>> from arqmath_eval import get_topics, get_judged_documents, get_ndcg
 >>>
->>> with open('results.csv', 'rt') as f:
->>>     results = parse_run(f)
+>>> task = 'task1-votes'
+>>> subset = 'train'
+>>> results = {}
+>>> for topic in get_topics(task=task, subset=subset):
+>>>     results[topic] = {}
+>>>     for document in get_judged_documents(task=task, subset=subset, topic=topic):
+>>>        similarity_score = compute_similarity_score(topic, document)
+>>>        results[topic][document] = similarity_score
+>>>
 >>> get_ndcg(results, task='task1-votes', subset='train')
 0.5876
 ```
 
-Beside `get_ndcg`, the Python interface of the package also provides the
-following functions:
+Here is the documentation of the available evaluation functions:
 
 - [`get_topics(task, subset=None)`][get_topics],
 - [`get_judged_documents(task, subset=None, topic=None)`][get_judged_documents],
@@ -50,19 +55,38 @@ following functions:
 - [`get_ndcg(parsed_run, task, subset)`][get_ndcg], and
 - [`get_random_normalized_ndcg(parsed_run, task, subset)`][get_random_ndcg].
 
-#### Placing your results to the leaderboard
-Place your results in [the trec\_eval format][treceval-format] into your
-dedicated directory *task/user*, e.g. `task1-votes/xnovot32` for the user
-@xnovot32 and the `task1-votes` task. To evaluate your results on the `test`
-set of the `task1-votes` and publish the results into the leaderboard, execute
-the following commands:
+#### Using the `validation` set to compare various parameters of your system
 
 ``` sh
-$ git add task1-votes/xnovot32/result.tsv  # track your new result with Git
 $ pip install git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@master
-$ python -m scripts.evaluate               # run the evaluation
+$ python
+>>> from arqmath_eval import get_ndcg
+>>>
+>>> task = 'task1-votes'
+>>> subset = 'validation'
+>>> results = {}
+>>> for topic in get_topics(task=task, subset=subset):
+>>>     results[topic] = {}
+>>>     for document in get_judged_documents(task=task, subset=subset, topic=topic):
+>>>        similarity_score = compute_similarity_score(topic, document)
+>>>        results[topic][document] = similarity_score
+>>>
+>>> user = 'xnovot32'
+>>> description = 'parameter1=value_parameter2=value'
+>>> filename = '{}/{}/{}.tsv'.format(task, user, description)
+>>> with open(filename, 'wt') as f:
+>>>     for topic, documents in results.items():
+>>>         top_documents = sorted(documents.items(), key=lambda x: x[1], reverse=True)[:1000]
+>>>         for rank, (document, similarity_score) in enumerate(top_documents):
+>>>             line = '{}\txxx\t{}\t{}\t{}\txxx'.format(topic, document, rank + 1, score)
+>>>             print(line, file=f)
+$ git add task1-votes/xnovot32/result.tsv  # track your new result with Git
+$ python -m arqmath_eval.evaluate          # run the evaluation
 $ git add -u                               # add the updated leaderboard to Git
 $ git push                                 # publish your new result and the updated leaderboard
+```
+
+``` sh
 ```
 
  [arqmath-task1]:              https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
