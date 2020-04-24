@@ -103,6 +103,8 @@ def get_ndcg(parsed_run, task, subset):
     """
     evaluator = EVALUATORS[subset][task]
     only_judged_parsed_run = _remove_nonjudged_topics_and_documents(parsed_run, task, subset)
+    if not only_judged_parsed_run:
+        return 0.0
     evaluation = evaluator.evaluate(only_judged_parsed_run)
     ndcg = np.mean([measures['ndcg'] for topic, measures in evaluation.items()])
     return ndcg
