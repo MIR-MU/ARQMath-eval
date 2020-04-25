@@ -60,8 +60,6 @@ Here is the documentation of the available evaluation functions:
 ``` sh
 $ pip install git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@master
 $ python
->>> from arqmath_eval import get_ndcg
->>>
 >>> task = 'task1-votes'
 >>> subset = 'validation'
 >>> results = {}
