@@ -153,15 +153,11 @@ def get_random_ndcg(task, subset, topn=1000):
     expected_judgement = np.mean(judgements)
 
     random_dcg = 0.0
-    for i in range(len(judgements)):
-        if i >= topn:
-            break
+    for i in range(min(len(judgements), topn)):
         random_dcg += expected_judgement / log2(i + 2)
 
     ideal_dcg = 0.0
     for i, judgement in enumerate(judgements):
-        if i >= topn:
-            break
         ideal_dcg += judgement / log2(i + 2)
 
     random_ndcg = random_dcg / ideal_dcg
