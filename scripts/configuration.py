@@ -25,6 +25,9 @@ RELEVANCE_JUDGEMENTS = {
         'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-train.dat',
         'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-train.dat',
     },
+    'small-validation': {
+        'task1-votes': 'votes-qrels-small-validation.V1.0.tsv',
+    },
     'validation': {
         'task1': 'qrel.V1.0-validation.tsv',
         'task1-votes': 'votes-qrels-validation.V1.0.tsv',

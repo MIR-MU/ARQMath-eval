@@ -11,5 +11,6 @@ include scripts/qrel.V1.0-train.tsv
 include scripts/qrel.V1.0-validation.tsv
 include scripts/qrel.V1.0-test.tsv
 include scripts/votes-qrels-train.V1.0.tsv
+include scripts/votes-qrels-small-validation.V1.0.tsv
 include scripts/votes-qrels-validation.V1.0.tsv
 include scripts/votes-qrels-test.V1.0.tsv
