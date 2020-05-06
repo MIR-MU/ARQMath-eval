@@ -93,7 +93,7 @@ $ git push                                 # publish your new result and the upd
  [get_judged_documents]:       https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L59
  [get_ndcg]:                   https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L90
  [get_random_ndcg]:            https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L124
- [get_random_normalized_ndcg]: https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L167
+ [get_random_normalized_ndcg]: https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L170
  [get_topics]:                 https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L34
  [ntcir-11-math-2]:            http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
  [ntcir-12-mathir]:            https://www.cs.rit.edu/~rlaz/files/ntcir12-mathir.pdf (NTCIR-12 MathIR Task Overview)

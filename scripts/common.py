@@ -145,23 +145,26 @@ def get_random_ndcg(task, subset, topn=1000):
         The expected NDCG' of a random system on the subset of the task.
 
     """
-    judgements = sorted([
-        judgement
-        for subset in PARSED_RELEVANCE_JUDGEMENTS[subset][task].values()
-        for judgement in subset.values()
-    ], reverse=True)
-    expected_judgement = np.mean(judgements)
+    random_ndcgs = []
+    for topic in get_topics(task, subset):
+        judgements = sorted([
+            judgement
+            for judgement in PARSED_RELEVANCE_JUDGEMENTS[subset][task][topic].values()
+        ], reverse=True)
+        expected_judgement = np.mean(judgements)
 
-    random_dcg = 0.0
-    for i in range(min(len(judgements), topn)):
-        random_dcg += expected_judgement / log2(i + 2)
+        random_dcg = 0.0
+        for i in range(min(len(judgements), topn)):
+            random_dcg += expected_judgement / log2(i + 2)
 
-    ideal_dcg = 0.0
-    for i, judgement in enumerate(judgements):
-        ideal_dcg += judgement / log2(i + 2)
+        ideal_dcg = 0.0
+        for i, judgement in enumerate(judgements):
+            ideal_dcg += judgement / log2(i + 2)
 
-    random_ndcg = random_dcg / ideal_dcg
-    return random_ndcg
+        random_ndcg = random_dcg / ideal_dcg if ideal_dcg > 0 else 1.0
+        random_ndcgs.append(random_ndcg)
+
+    return np.mean(random_ndcgs)
 
 
 def get_random_normalized_ndcg(parsed_run, task, subset, topn=1000):
