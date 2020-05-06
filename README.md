@@ -77,7 +77,7 @@ $ python
 >>> with open(filename, 'wt') as f:
 >>>     for topic, documents in results.items():
 >>>         top_documents = sorted(documents.items(), key=lambda x: x[1], reverse=True)[:1000]
->>>         for rank, (document, similarity_score) in enumerate(top_documents):
+>>>         for rank, (document, score) in enumerate(top_documents):
 >>>             line = '{}\txxx\t{}\t{}\t{}\txxx'.format(topic, document, rank + 1, score)
 >>>             print(line, file=f)
 $ git add task1-votes/xnovot32/result.tsv  # track your new result with Git
