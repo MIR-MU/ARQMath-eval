@@ -60,6 +60,8 @@ Here is the documentation of the available evaluation functions:
 ``` sh
 $ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.4
 $ python
+>>> from arqmath_eval import get_topics, get_judged_documents
+>>>
 >>> task = 'task1-votes'
 >>> subset = 'validation'
 >>> results = {}
