@@ -30,7 +30,7 @@ Each task comes with three *subsets*:
 #### Using the `train` set to train your supervised system
 
 ``` sh
-$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.5
+$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.4
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents, get_ndcg
 >>>
@@ -58,7 +58,7 @@ Here is the documentation of the available evaluation functions:
 #### Using the `validation` set to compare various parameters of your system
 
 ``` sh
-$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.5
+$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.4
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents
 >>>

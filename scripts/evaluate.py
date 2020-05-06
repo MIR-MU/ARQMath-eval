@@ -6,7 +6,7 @@ import re
 
 from pytrec_eval import parse_run
 
-from .common import get_ndcg, get_random_normalized_ndcg
+from .common import get_ndcg
 from .configuration import TASKS, USER_README_HEAD
 
 
@@ -20,12 +20,9 @@ if __name__ == '__main__':
                 result_name = re.sub('_', ', ', os.path.basename(result)[:-4])
                 with open(result, 'rt') as f:
                     parsed_result = parse_run(f)
-                params = (parsed_result, task, 'validation')
-                ndcg = get_ndcg(*params)
-                random_normalized_ndcg = get_random_normalized_ndcg(*params)
-                user_results.append((ndcg, random_normalized_ndcg, result_name))
+                user_results.append((get_ndcg(parsed_result, task, 'validation'), result_name))
             with open(os.path.join(user, 'README.md'), 'wt') as f:
                 f.write(USER_README_HEAD % user_name)
                 f.write('\n')
-                for ndcg, random_normalized_ndcg, result_name in sorted(user_results, reverse=True):
-                    f.write('| %.4f | %.4f | %s |\n' % (ndcg, random_normalized_ndcg, result_name))
+                for ndcg, result_name in sorted(user_results, reverse=True):
+                    f.write('| %.4f | %s |\n' % (ndcg, result_name))
