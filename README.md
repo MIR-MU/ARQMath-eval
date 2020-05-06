@@ -43,7 +43,7 @@ $ python
 >>>        similarity_score = compute_similarity_score(topic, document)
 >>>        results[topic][document] = similarity_score
 >>>
->>> get_ndcg(results, task='task1-votes', subset='train')
+>>> get_ndcg(results, task='task1-votes', subset='train', topn=1000)
 0.5876
 ```
 
