@@ -51,6 +51,8 @@ def get_topics(task, subset=None):
     topics = set()
     subsets = PARSED_RELEVANCE_JUDGEMENTS.values() if subset is None else [PARSED_RELEVANCE_JUDGEMENTS[subset]]
     for subset in subsets:
+        if task not in subset:
+            continue
         for topic in subset[task].keys():
             topics.add(topic)
     return topics
@@ -79,6 +81,8 @@ def get_judged_documents(task, subset=None, topic=None):
     judged_documents = set()
     subsets = PARSED_RELEVANCE_JUDGEMENTS.values() if subset is None else [PARSED_RELEVANCE_JUDGEMENTS[subset]]
     for subset in subsets:
+        if task not in subset:
+            continue
         if topic is not None and topic not in subset[task]:
             continue
         topics = subset[task].values() if topic is None else [subset[task][topic]]
