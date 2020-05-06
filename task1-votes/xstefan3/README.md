@@ -4,4 +4,5 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 
 | nDCG | Result name |
 |------|:------------|
-| 0.7982 | train, sampled, eval9 |
+| 0.7796 | train, sampled, eval9 |
+| 0.7653 | train, sampled, eval4 |
