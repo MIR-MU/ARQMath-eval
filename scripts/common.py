@@ -165,7 +165,7 @@ def get_random_ndcg(task, subset, topn=1000):
         for i, judgement in enumerate(judgements):
             ideal_dcg += judgement / log2(i + 2)
 
-        random_ndcg = random_dcg / ideal_dcg if ideal_dcg > 0 else 1.0
+        random_ndcg = random_dcg / ideal_dcg if ideal_dcg > 0 else 0.0
         random_ndcgs.append(random_ndcg)
 
     return np.mean(random_ndcgs)

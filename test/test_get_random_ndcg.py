@@ -1,11 +1,12 @@
 from math import log2
+from random import random
 import unittest
 
-from arqmath_eval import get_random_ndcg
+from arqmath_eval import get_random_ndcg, get_ndcg, get_topics, get_judged_documents
 
 
 class TestGetRandomNDCG(unittest.TestCase):
-    def test(self):
+    def test_using_equation(self):
         ndcg = get_random_ndcg('task1', 'test')
 
         expected_judgement = (
@@ -30,6 +31,21 @@ class TestGetRandomNDCG(unittest.TestCase):
 
         expected_ndcg = expected_dcg / expected_idcg
         self.assertEqual(expected_ndcg, ndcg)
+
+    def test_using_estimation(self):
+        task = 'task1-votes'
+        subset = 'small-validation'
+
+        results = {}
+        for topic in get_topics(task, subset):
+            results[topic] = {}
+            for document in get_judged_documents(task, subset, topic):
+                similarity = random()
+                results[topic][document] = similarity
+
+        ndcg = get_ndcg(results, task, subset)
+        expected_ndcg = get_random_ndcg(task, subset)
+        self.assertAlmostEqual(expected_ndcg, ndcg, places=3)
 
     def test_with_topn(self):
         ndcg = get_random_ndcg('task1', 'test', 4)
