@@ -6,16 +6,16 @@ from pytrec_eval import parse_qrel, RelevanceEvaluator
 TASK_README_HEAD = r'''
 This table contains the best result for every user.
 
-| nDCG | User | Result name |
-|:-----|------|:------------|
+| nDCG' | Random-normalized nDCG' | User | Result name |
+|:------|-------------------------|------|:------------|
 '''.strip()
 USER_README_HEAD = r'''
 This table contains all results for user *%s* in descending order of task
 performance.  Result names are based on the filenames of the results with
 underscores (`_`) replaced with a comma and a space for improved readability.
 
-| nDCG | Result name |
-|------|:------------|
+| nDCG' | Random-normalized nDCG' | Result name |
+|-------|-------------------------|:------------|
 '''.strip()
 RELEVANCE_JUDGEMENTS = {
     'train': {
