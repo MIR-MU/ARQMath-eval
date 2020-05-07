@@ -30,7 +30,7 @@ Each task comes with three *subsets*:
 #### Using the `train` set to train your supervised system
 
 ``` sh
-$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.4
+$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.6
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents, get_ndcg
 >>>
@@ -58,7 +58,7 @@ Here is the documentation of the available evaluation functions:
 #### Using the `validation` set to compare various parameters of your system
 
 ``` sh
-$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.4
+$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.6
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents
 >>>
@@ -90,10 +90,10 @@ $ git push                                 # publish your new result and the upd
 ```
 
  [arqmath-task1]:              https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
- [get_judged_documents]:       https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L59
- [get_ndcg]:                   https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L90
- [get_random_ndcg]:            https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L124
- [get_random_normalized_ndcg]: https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L167
+ [get_judged_documents]:       https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L61
+ [get_ndcg]:                   https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L94
+ [get_random_ndcg]:            https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L129
+ [get_random_normalized_ndcg]: https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L174
  [get_topics]:                 https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L34
  [ntcir-11-math-2]:            http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
  [ntcir-12-mathir]:            https://www.cs.rit.edu/~rlaz/files/ntcir12-mathir.pdf (NTCIR-12 MathIR Task Overview)
