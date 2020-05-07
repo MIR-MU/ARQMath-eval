@@ -9,6 +9,4 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 | 0.7603 | sbert, validation, no-token-type, datav1.0, exid25 |
 | 0.7602 | sbert, validation, prefix, datav1.0, exid23 |
 | 0.7599 | sbert, validation, token-type, datav1.0, exid24 |
-| 0.7598 | sbert, validation, exid25, no-token-type, datav1.0 |
-| 0.7597 | sbert, validation, exid24, token-type, datav1.0 |
 | *0.7578* | *random* |
