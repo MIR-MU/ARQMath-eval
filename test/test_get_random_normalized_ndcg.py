@@ -5,6 +5,18 @@ from arqmath_eval import get_random_ndcg, get_random_normalized_ndcg
 
 
 class TestGetRandomNormalizedNDCG(unittest.TestCase):
+    def test_hand_picked(self):
+        parsed_run = {}
+        random_ndcg = get_random_ndcg('task1', 'test')
+
+        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1', 'test', ndcg=1.0)
+        expected_random_normalized_ndcg = 1.0
+        self.assertEqual(expected_random_normalized_ndcg, random_normalized_ndcg)
+
+        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1', 'test', ndcg=random_ndcg)
+        expected_random_normalized_ndcg = 0.0
+        self.assertEqual(expected_random_normalized_ndcg, random_normalized_ndcg)
+
     def test_best(self):
         parsed_run = {
             'A.78': {

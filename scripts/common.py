@@ -171,7 +171,7 @@ def get_random_ndcg(task, subset, topn=1000):
     return np.mean(random_ndcgs)
 
 
-def get_random_normalized_ndcg(parsed_run, task, subset, topn=1000):
+def get_random_normalized_ndcg(parsed_run, task, subset, topn=1000, ndcg=None):
     """Returns the random-normalized NDCG' of a system's run on a subset of a task.
 
     NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all
@@ -193,6 +193,9 @@ def get_random_normalized_ndcg(parsed_run, task, subset, topn=1000):
     topn : int, optional
         The top N results, which will be considered in computing the NDCG.
         Default is 1000.
+    ndcg : float or None, optional
+        The NDCG' to random-normalize. If not None, the parsed_run parameter
+        will be ignored. Default is None.
 
     Returns
     -------
@@ -200,7 +203,8 @@ def get_random_normalized_ndcg(parsed_run, task, subset, topn=1000):
         The random-normalized NDCG' of the system's run on the subset of the task.
 
     """
-    ndcg = get_ndcg(parsed_run, task, subset, topn)
+    if ndcg is None:
+        ndcg = get_ndcg(parsed_run, task, subset, topn)
     random_ndcg = get_random_ndcg(task, subset, topn)
     random_normalized_ndcg = (ndcg - random_ndcg) / (1.0 - random_ndcg)
     return random_normalized_ndcg
