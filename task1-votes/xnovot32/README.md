@@ -17,8 +17,8 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 The system recogizes the following parameters:
 
 - Dataset:
-  - arxmliv, 08, 2019, no-problem – The `no_problem` subset (150,701 documents) of [the arXMLiv 08.2019 dataset][arxmliv-08-2019]
-  - phrases – Whether phrases are modeled in the corpus
+  - arxmliv, 08, 2019, no-problem – the no\_problem subset (150,701 documents) of [the arXMLiv 08.2019 dataset][arxmliv-08-2019]
+  - phrases – whether phrases are modeled
 - Math representation:
   - opt – paths in operator tree
   - slt – paths in syntax layout tree
@@ -43,8 +43,8 @@ The system recogizes the following parameters:
   - dominant – whether the term similarity matrix will be strongly diagonally dominant
   - nonzero-limit – the maximum number of non-zero elements outside the diagonal in a single column of the term similarity matrix
   - symmetric – whether the term similarity matrix will be symmetric
-  - exponent – parameter `o` in the [term similarity matrix formula][]
-  - threshold – parameter `t` in the [term similarity matrix formula][]
+  - exponent – parameter *o* in the [term similarity matrix formula][]
+  - threshold – parameter *t* in the [term similarity matrix formula][]
 
  [arxmliv-08-2019]: https://sigmathling.kwarc.info/resources/arxmliv-dataset-082019/
  [term similarity matrix formula]: https://arxiv.org/pdf/2003.05019.pdf#page=4
