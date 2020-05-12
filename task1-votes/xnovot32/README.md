@@ -4,13 +4,12 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 
 | nDCG | Result name |
 |------|:------------|
-| 0.7613 | infix, concat-math=False, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7612 | prefix, concat-math=False, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7607 | slt, concat-math=False, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7606 | opt, concat-math=False, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7603 | infix, concat-math=True, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7602 | latex, concat-math=False, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7600 | nomath, concat-math=False, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7613 | infix, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7612 | prefix, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7607 | slt, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7606 | opt, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7602 | latex, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7600 | nomath, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
 | *0.7578* | *random* |
 
 ## Legend
@@ -19,7 +18,6 @@ The [SCM system][scm-at-arqmath] recogizes the following parameters:
 
 - Dataset:
   - arxmliv, 08, 2019, no-problem – the no\_problem subset (150,701 documents) of [the arXMLiv 08.2019 dataset][arxmliv-08-2019]
-  - concat-math – whether adjacent math tokens are contatenated into mathematical expressions
   - phrases – how many times [collocation detection][] and bigram merging are iteratively applied to the corpus:
     - 0 – the text and math tokens in the corpus are unchanged,
     - N –  [collocation detection][] and bigram merging are iteratively applied to both text and math tokens in the corpus N times
