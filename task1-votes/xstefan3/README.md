@@ -6,7 +6,8 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 |------|:------------|
 | 0.7796 | sbert, validation, html-removal, exid9 |
 | 0.7653 | sbert, validation, nopreproc, exid4 |
-| 0.7651 | sbert, validation, vit, preproc, prefix, exid26 |
+| 0.7651 | sbert, validation, vit, preproc, prefix, exid26, epoch4 |
+| 0.7645 | sbert, validation, vit, preproc, prefix, exid26, epoch8 |
 | 0.7603 | sbert, validation, no-token-type, datav1.0, exid25 |
 | 0.7602 | sbert, validation, prefix, datav1.0, exid23 |
 | 0.7599 | sbert, validation, token-type, datav1.0, exid24 |
