@@ -41,7 +41,6 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 The [SCM system][scm-at-arqmath] recogizes the following parameters:
 
 - Dataset:
-  - arxmliv, 08, 2019, no-problem – the no\_problem subset (150,701 documents) of [the arXMLiv 08.2019 dataset][arxmliv-08-2019]
   - phrases – how many times [collocation detection][] and bigram merging are iteratively applied to the corpus:
     - 0 – the text and math tokens in the corpus are unchanged,
     - N –  [collocation detection][] and bigram merging are iteratively applied to both text and math tokens in the corpus N times
