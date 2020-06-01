@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='arqmath_eval',
-    version='0.0.8',
+    version='0.0.9',
     description='Evaluation of ARQMath systems',
     packages=['arqmath_eval'],
     package_dir={'arqmath_eval': 'scripts'},
@@ -32,6 +32,7 @@ setup(
             'votes-qrels-small-validation.V1.0.tsv',
             'votes-qrels-validation.V1.0.tsv',
             'votes-qrels-test.V1.0.tsv',
+            'votes-qrels.V1.2.tsv',
         ],
     },
     include_package_data=True,
