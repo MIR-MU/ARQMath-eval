@@ -4,10 +4,10 @@ from pytrec_eval import parse_qrel, RelevanceEvaluator
 
 
 TASK_README_HEAD = r'''
-This table contains the best result for every user.
+This table contains the best result for every user on the *%s* task.
 
-| nDCG | User | Result name |
-|:-----|------|:------------|
+| nDCG | Result name | User |
+|:-----|:------------|------|
 '''.strip()
 USER_README_HEAD = r'''
 This table contains all results for user *%s* in descending order of task

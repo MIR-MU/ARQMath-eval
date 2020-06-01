@@ -9,7 +9,7 @@ from pytrec_eval import parse_run
 from tqdm import tqdm
 
 from .common import get_ndcg, get_random_ndcg
-from .configuration import TASKS, USER_README_HEAD
+from .configuration import TASKS, USER_README_HEAD, TASK_README_HEAD
 
 
 def evaluate_worker(result_filename):
@@ -24,6 +24,7 @@ if __name__ == '__main__':
     for task in TASKS:
         random_ndcg = get_random_ndcg(task, 'validation')
         users = glob(os.path.join(task, '*', ''))
+        task_results = [(random_ndcg, 'random', 'Mr. Random')]
         for user in users:
             user = os.path.normpath(user)
             user_name = os.path.basename(user)
@@ -37,6 +38,7 @@ if __name__ == '__main__':
                     with open(os.path.join(user, 'README.md'), 'wt') as f_readme:
                         f_readme.write(USER_README_HEAD % user_name)
                         f_readme.write('\n')
+                        task_results.append((*max(user_results), user_name))
                         for ndcg, result_name in sorted(user_results, reverse=True):
                             if result_name == 'random':
                                 f_readme.write('| *%.4f* | *%s* |\n' % (ndcg, result_name))
@@ -48,4 +50,11 @@ if __name__ == '__main__':
                                 f_readme.write(f_legend.read())
                         except IOError:
                             pass
-
+        with open(os.path.join(task, 'README.md'), 'wt') as f_readme:
+            f_readme.write(TASK_README_HEAD % task)
+            f_readme.write('\n')
+            for ndcg, result_name, user_name in sorted(task_results, reverse=True):
+                if result_name == 'random':
+                    f_readme.write('| *%.4f* | *%s* | *%s* |\n' % (ndcg, result_name, user_name))
+                else:
+                    f_readme.write('|  %.4f  |  %s  |  %s  |\n' % (ndcg, result_name, user_name))

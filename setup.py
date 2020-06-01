@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='arqmath_eval',
-    version='0.0.9',
+    version='0.0.10',
     description='Evaluation of ARQMath systems',
     packages=['arqmath_eval'],
     package_dir={'arqmath_eval': 'scripts'},
