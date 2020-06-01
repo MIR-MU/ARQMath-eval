@@ -44,7 +44,7 @@ RELEVANCE_JUDGEMENTS = {
         'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-test.dat',
     },
 }
-TASKS = list(RELEVANCE_JUDGEMENTS['test'].keys())
+TASKS = list(RELEVANCE_JUDGEMENTS['validation'].keys())
 PARSED_RELEVANCE_JUDGEMENTS = {}
 EVALUATORS = {}
 for subset, filenames in RELEVANCE_JUDGEMENTS.items():
