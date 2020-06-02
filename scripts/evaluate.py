@@ -24,7 +24,7 @@ if __name__ == '__main__':
     for task in TASKS:
         random_ndcg = get_random_ndcg(task, 'validation')
         users = glob(os.path.join(task, '*', ''))
-        task_results = [(random_ndcg, 'random', 'Mr. Random')]
+        task_results = [(random_ndcg, 'random', 'xrando42')]
         for user in users:
             user = os.path.normpath(user)
             user_name = os.path.basename(user)
