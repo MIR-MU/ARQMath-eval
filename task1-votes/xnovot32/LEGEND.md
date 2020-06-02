@@ -23,7 +23,6 @@ The [SCM system][scm-at-arqmath] recogizes the following parameters:
   - sg – the skipgram model
   - size – vector dimensions
   - window – window size
-  - workers – the number of threads used for [hogwild][]
 - Soft Cosine Measure:
   - dominant – whether the term similarity matrix will be strongly diagonally dominant
   - nonzero-limit – the maximum number of non-zero elements outside the diagonal in a single column of the term similarity matrix
@@ -33,6 +32,5 @@ The [SCM system][scm-at-arqmath] recogizes the following parameters:
 
  [arxmliv-08-2019]: https://sigmathling.kwarc.info/resources/arxmliv-dataset-082019/
  [collocation detection]: https://radimrehurek.com/gensim/models/phrases.html
- [hogwild]: https://papers.nips.cc/paper/4390-hogwild-a-lock-free-approach-to-parallelizing-stochastic-gradient-descent
  [scm-at-arqmath]: https://gitlab.fi.muni.cz/xnovot32/scm-at-arqmath (Soft Cosine Measure at ARQMath)
  [term similarity matrix formula]: https://arxiv.org/pdf/2003.05019.pdf#page=4
