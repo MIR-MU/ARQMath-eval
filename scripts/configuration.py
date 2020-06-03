@@ -38,11 +38,14 @@ RELEVANCE_JUDGEMENTS = {
     'test': {
         'task1': 'qrel.V1.0-test.tsv',
         'task1-votes': 'votes-qrels-test.V1.0.tsv',
-        'task1-votes.V1.2': 'votes-qrels.V1.2.tsv',
         'ntcir-11-math-2-main': 'NTCIR11_Math-qrels-test.dat',
         'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-test.dat',
         'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-test.dat',
     },
+    'all': {
+        'task1-votes.V1.2': 'votes-qrels.V1.2.tsv',
+        'task2-topics-formula_ids.V.1.1': 'topics-formula_ids-qrels.V1.1.tsv',
+    }
 }
 TASKS = list(RELEVANCE_JUDGEMENTS['validation'].keys())
 PARSED_RELEVANCE_JUDGEMENTS = {}
