@@ -5,6 +5,7 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 | nDCG | Result name |
 |------|:------------|
 | 0.7796 | sbert, validation, html-removal, exid9 |
+| 0.7688 | sbert, validation, latex, NOmodelselect, preproc-matching, exid34, epoch5 |
 | 0.7688 | sbert, validation, latex, NOmodelselect, preproc-matching, exid34, epoch3 |
 | 0.7686 | sbert, validation, latex, NOmodelselect, exid33, epoch3 |
 | 0.7676 | sbert, validation, latex, betterhtml, modelselect, epoch1, exid30 |
