@@ -4,10 +4,10 @@ from pytrec_eval import parse_qrel, RelevanceEvaluator
 
 
 TASK_README_HEAD = r'''
-This table contains the best result for every user.
+This table contains the best result for every user on the *%s* task.
 
-| nDCG | User | Result name |
-|:-----|------|:------------|
+| nDCG | Result name | User |
+|:-----|:------------|------|
 '''.strip()
 USER_README_HEAD = r'''
 This table contains all results for user *%s* in descending order of task
@@ -42,8 +42,12 @@ RELEVANCE_JUDGEMENTS = {
         'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-test.dat',
         'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-test.dat',
     },
+    'all': {
+        'task1-votes.V1.2': 'votes-qrels.V1.2.tsv',
+        'task2-topics-formula_ids.V.1.1': 'topics-formula_ids-qrels.V1.1.tsv',
+    }
 }
-TASKS = list(RELEVANCE_JUDGEMENTS['test'].keys())
+TASKS = list(RELEVANCE_JUDGEMENTS['validation'].keys())
 PARSED_RELEVANCE_JUDGEMENTS = {}
 EVALUATORS = {}
 for subset, filenames in RELEVANCE_JUDGEMENTS.items():

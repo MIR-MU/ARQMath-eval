@@ -45,7 +45,7 @@ class TestGetRandomNDCG(unittest.TestCase):
 
         ndcg = get_ndcg(results, task, subset)
         expected_ndcg = get_random_ndcg(task, subset)
-        self.assertAlmostEqual(expected_ndcg, ndcg, places=3)
+        self.assertAlmostEqual(expected_ndcg, ndcg, places=2)
 
     def test_with_topn(self):
         ndcg = get_random_ndcg('task1', 'test', 4)

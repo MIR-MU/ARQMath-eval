@@ -4,36 +4,43 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 
 | nDCG | Result name |
 |------|:------------|
-| 0.7614 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=800, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7614 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=200, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7614 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=50, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7614 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7613 | prefix, phrases=6, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7613 | prefix, phrases=5, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=200, symmetric=False, exponent=4.0, threshold=-1.0 |
-| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=1600, symmetric=False, exponent=4.0, threshold=-1.0 |
-| 0.7613 | prefix, phrases=1, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=800, symmetric=False, exponent=4.0, threshold=-1.0 |
-| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=0, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=400, symmetric=False, exponent=4.0, threshold=-1.0 |
-| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=False, exponent=4.0, threshold=-1.0 |
-| 0.7613 | infix, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=50, symmetric=False, exponent=4.0, threshold=-1.0 |
-| 0.7612 | prefix, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7612 | prefix, phrases=10, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7612 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=1600, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7612 | prefix, phrases=2, alpha=0.05, bucket=1000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7612 | prefix, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=400, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7612 | prefix, phrases=3, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7612 | prefix, phrases=2, alpha=0.05, bucket=8000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7611 | prefix, phrases=2, alpha=0.05, bucket=4000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7610 | prefix, phrases=4, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7607 | slt, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7606 | opt, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7602 | latex, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7600 | nomath, phrases=0, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7598 | nomath, phrases=1, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
-| 0.7596 | nomath, phrases=2, alpha=0.05, bucket=2000000, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, workers=64, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7614 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=800, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7614 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=200, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7614 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=50, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7614 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7613 | prefix, phrases=6, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7613 | prefix, phrases=5, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=200, symmetric=False, exponent=4.0, threshold=-1.0 |
+| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=1600, symmetric=False, exponent=4.0, threshold=-1.0 |
+| 0.7613 | prefix, phrases=1, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=800, symmetric=False, exponent=4.0, threshold=-1.0 |
+| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=0, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=400, symmetric=False, exponent=4.0, threshold=-1.0 |
+| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=False, nonzero-limit=50, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=False, exponent=4.0, threshold=-1.0 |
+| 0.7613 | infix, phrases=0, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=False, nonzero-limit=400, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7613 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=50, symmetric=False, exponent=4.0, threshold=-1.0 |
+| 0.7612 | prefix, phrases=0, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7612 | prefix, phrases=10, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7612 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=1600, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7612 | prefix, phrases=2, alpha=0.05, bucket=1M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7612 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=400, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7612 | prefix, phrases=3, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7612 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=False, nonzero-limit=50, symmetric=False, exponent=4.0, threshold=-1.0 |
+| 0.7612 | prefix, phrases=2, alpha=0.05, bucket=8M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7611 | prefix, phrases=2, alpha=0.05, bucket=4M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7611 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=False, nonzero-limit=200, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7610 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=False, nonzero-limit=200, symmetric=False, exponent=4.0, threshold=-1.0 |
+| 0.7610 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=False, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7610 | prefix, phrases=4, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7610 | prefix, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=False, nonzero-limit=100, symmetric=False, exponent=4.0, threshold=-1.0 |
+| 0.7607 | slt, phrases=0, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7606 | opt, phrases=0, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7602 | latex, phrases=0, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7600 | nomath, phrases=0, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7598 | nomath, phrases=1, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
+| 0.7596 | nomath, phrases=2, alpha=0.05, bucket=2M, iter=5, max-n=6, min-alpha=0, min-count=5, min-n=3, negative=5, sample=0.0001, sg=1, size=300, window=5, dominant=True, nonzero-limit=100, symmetric=True, exponent=4.0, threshold=-1.0 |
 | *0.7578* | *random* |
 
 ## Legend
@@ -41,7 +48,6 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 The [SCM system][scm-at-arqmath] recogizes the following parameters:
 
 - Dataset:
-  - arxmliv, 08, 2019, no-problem – the no\_problem subset (150,701 documents) of [the arXMLiv 08.2019 dataset][arxmliv-08-2019]
   - phrases – how many times [collocation detection][] and bigram merging are iteratively applied to the corpus:
     - 0 – the text and math tokens in the corpus are unchanged,
     - N –  [collocation detection][] and bigram merging are iteratively applied to both text and math tokens in the corpus N times
@@ -64,7 +70,6 @@ The [SCM system][scm-at-arqmath] recogizes the following parameters:
   - sg – the skipgram model
   - size – vector dimensions
   - window – window size
-  - workers – the number of threads used for [hogwild][]
 - Soft Cosine Measure:
   - dominant – whether the term similarity matrix will be strongly diagonally dominant
   - nonzero-limit – the maximum number of non-zero elements outside the diagonal in a single column of the term similarity matrix
@@ -74,6 +79,5 @@ The [SCM system][scm-at-arqmath] recogizes the following parameters:
 
  [arxmliv-08-2019]: https://sigmathling.kwarc.info/resources/arxmliv-dataset-082019/
  [collocation detection]: https://radimrehurek.com/gensim/models/phrases.html
- [hogwild]: https://papers.nips.cc/paper/4390-hogwild-a-lock-free-approach-to-parallelizing-stochastic-gradient-descent
  [scm-at-arqmath]: https://gitlab.fi.muni.cz/xnovot32/scm-at-arqmath (Soft Cosine Measure at ARQMath)
  [term similarity matrix formula]: https://arxiv.org/pdf/2003.05019.pdf#page=4
