@@ -6,7 +6,11 @@ underscores (`_`) replaced with a comma and a space for improved readability.
 |------|:------------|
 | 0.7604 | prefix, phrases=2, alpha=0.1, dm=0, dm-concat=1, epochs=5, hs=0, min-alpha=0, min-count=5, negative=12, vector-size=300, window=8 |
 | 0.7579 | prefix, phrases=2, alpha=0.05, dm=1, dm-concat=1, epochs=5, hs=1, min-alpha=0, min-count=5, vector-size=400, window=4 |
+| 0.7579 | prefix, phrases=0, alpha=0.05, dm=1, dm-concat=1, epochs=5, hs=1, min-alpha=0, min-count=5, vector-size=300, window=6 |
 | *0.7578* | *random* |
+| 0.7578 | prefix, phrases=0, alpha=0.05, dm=1, dm-concat=1, epochs=5, hs=1, min-alpha=0, min-count=5, vector-size=300, window=4 |
+| 0.7578 | prefix, phrases=0, alpha=0.05, dm=1, dm-concat=1, epochs=5, hs=1, min-alpha=0, min-count=5, vector-size=300, window=5 |
+| 0.7574 | prefix, phrases=0, alpha=0.05, dm=1, dm-concat=1, epochs=5, hs=1, min-alpha=0, min-count=5, vector-size=400, window=4 |
 
 ## Legend
 
