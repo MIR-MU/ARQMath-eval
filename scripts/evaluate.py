@@ -4,6 +4,7 @@ from glob import glob
 from multiprocessing import Pool
 import os.path
 import re
+import sys
 
 from pytrec_eval import parse_run
 from tqdm import tqdm
@@ -20,7 +21,7 @@ def evaluate_worker(result_filename):
     return (result_name, ndcg)
 
 
-if __name__ == '__main__':
+def produce_leaderboards():
     for task in TASKS:
         if not os.path.exists(task):
             continue
@@ -60,3 +61,38 @@ if __name__ == '__main__':
                     f_readme.write('| *%.4f* | *%s* | *%s* |\n' % (ndcg, result_name, user_name))
                 else:
                     f_readme.write('|  %.4f  |  %s  |  %s  |\n' % (ndcg, result_name, user_name))
+
+
+def evaluate_run(filename):
+    with open(filename, 'rt') as f:
+        lines = [line.strip().split() for line in f]
+    first_line = lines[0]
+    n = len(first_line)
+    if n == 5:
+        task = 'task1'
+    elif n == 6:
+        task = 'task2'
+    else:
+        raise ValueError(
+            'Expected lines as 5-tuples (Query_Id, Post_Id, Rank, Score, Run_Number) for task 1, '
+            'or 6-tuples (Query_Id, Formula_Id, Post_Id, Rank, Score, Run_Number) for task 2, '
+            'received %d-tuples: %s' % (n, first_line)
+        )
+    parsed_result = dict()
+    for line in lines:
+        topic_id, result_id, *_, rank, __, ___ = line
+        if topic_id not in parsed_result:
+            parsed_result[topic_id] = dict()
+        parsed_result[topic_id][result_id] = 1.0 / int(rank)
+    ndcg = get_ndcg(parsed_result, task, 'all')
+    print('%.3f' % ndcg)
+
+
+if __name__ == '__main__':
+    if len(sys.argv) == 1:
+        produce_leaderboards()
+    elif len(sys.argv) == 2:
+        filename = sys.argv[1]
+        evaluate_run(filename)
+    else:
+        raise ValueError("Expected either zero (produce leaderboards) or one (produce NDCG' score for a file with task 1 or 2 result) arguments")

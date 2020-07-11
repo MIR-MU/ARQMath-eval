@@ -33,10 +33,10 @@ all relevance judgements. Use these to evaluate a system that has not been
 trained using subsets of the `task1` and `task2` tasks.
 
 ### Examples
-#### Using the `train` set to train your supervised system
+#### Using the `train` subset to train your supervised system
 
 ``` sh
-$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.8
+$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.13
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents, get_ndcg
 >>>
@@ -61,10 +61,10 @@ Here is the documentation of the available evaluation functions:
 - [`get_ndcg(parsed_run, task, subset, topn)`][get_ndcg], and
 - [`get_random_normalized_ndcg(parsed_run, task, subset, topn, ndcg)`][get_random_normalized_ndcg].
 
-#### Using the `validation` set to compare various parameters of your system
+#### Using the `validation` subset to compare various parameters of your system
 
 ``` sh
-$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.8
+$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.13
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents
 >>>
@@ -92,7 +92,12 @@ $ git add -u                               # add the updated leaderboard to Git
 $ git push                                 # publish your new result and the updated leaderboard
 ```
 
+#### Using the `all` subset to compute the NDCG' score of an ARQMath submission
+
 ``` sh
+$ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-eval@0.0.13
+$ python -m arqmath_eval.evaluate MIRMU-task1-Ensemble-auto-both-A.tsv
+0.238
 ```
 
  [arqmath-task1]:              https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
