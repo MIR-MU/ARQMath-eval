@@ -102,11 +102,11 @@ $ python -m arqmath_eval.evaluate MIRMU-task1-Ensemble-auto-both-A.tsv
 
  [arqmath-task1]:              https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
  [arqmath-task2]:              https://www.cs.rit.edu/~dprl/ARQMath/task2-formulas.html (Task 2: Formula Search)
- [get_judged_documents]:       https://github.com/MIR-MU/ARQMath-eval/-/blob/master/scripts/common.py#L61
- [get_ndcg]:                   https://github.com/MIR-MU/ARQMath-eval/-/blob/master/scripts/common.py#L94
- [get_random_ndcg]:            https://github.com/MIR-MU/ARQMath-eval/-/blob/master/scripts/common.py#L129
- [get_random_normalized_ndcg]: https://github.com/MIR-MU/ARQMath-eval/-/blob/master/scripts/common.py#L174
- [get_topics]:                 https://github.com/MIR-MU/ARQMath-eval/-/blob/master/scripts/common.py#L34
+ [get_judged_documents]:       https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L61
+ [get_ndcg]:                   https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L94
+ [get_random_ndcg]:            https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L129
+ [get_random_normalized_ndcg]: https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L174
+ [get_topics]:                 https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L34
  [ntcir-11-math-2]:            http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
  [ntcir-12-mathir]:            https://www.cs.rit.edu/~rlaz/files/ntcir12-mathir.pdf (NTCIR-12 MathIR Task Overview)
  [treceval-format]:            https://stackoverflow.com/a/8175382/657401 (How to evaluate a search/retrieval engine using trec_eval?)
