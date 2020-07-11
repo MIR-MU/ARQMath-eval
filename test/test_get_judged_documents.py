@@ -5,7 +5,7 @@ from arqmath_eval import get_judged_documents
 
 class TestGetJudgedDocuments(unittest.TestCase):
     def test_all_subsets_all_topics(self):
-        documents = get_judged_documents('task1')
+        documents = get_judged_documents('task1-example')
         expected_documents = {
             '48162',
             '48164',
@@ -94,7 +94,7 @@ class TestGetJudgedDocuments(unittest.TestCase):
         self.assertEqual(expected_documents, documents)
 
     def test_selected_subsets_all_topics(self):
-        documents = get_judged_documents('task1', 'train')
+        documents = get_judged_documents('task1-example', 'train')
         expected_documents = {
             '70741',
             '70739',
@@ -149,7 +149,7 @@ class TestGetJudgedDocuments(unittest.TestCase):
         }
         self.assertEqual(expected_documents, documents)
 
-        documents = get_judged_documents('task1', 'validation')
+        documents = get_judged_documents('task1-example', 'validation')
         expected_documents = {
             '263828',
             '264299',
@@ -173,7 +173,7 @@ class TestGetJudgedDocuments(unittest.TestCase):
         }
         self.assertEqual(expected_documents, documents)
 
-        documents = get_judged_documents('task1', 'test')
+        documents = get_judged_documents('task1-example', 'test')
         expected_documents = {
             '493764',
             '493782',
@@ -197,7 +197,7 @@ class TestGetJudgedDocuments(unittest.TestCase):
         self.assertEqual(expected_documents, documents)
 
     def test_all_subsets_selected_topics(self):
-        documents = get_judged_documents('task1', topic='A.31')
+        documents = get_judged_documents('task1-example', topic='A.31')
         expected_documents = {
             '48162',
             '48164',
@@ -252,7 +252,7 @@ class TestGetJudgedDocuments(unittest.TestCase):
         }
         self.assertEqual(expected_documents, documents)
 
-        documents = get_judged_documents('task1', topic='A.101')
+        documents = get_judged_documents('task1-example', topic='A.101')
         expected_documents = {
             '263828',
             '264299',
@@ -276,7 +276,7 @@ class TestGetJudgedDocuments(unittest.TestCase):
         }
         self.assertEqual(expected_documents, documents)
 
-        documents = get_judged_documents('task1', topic='A.78')
+        documents = get_judged_documents('task1-example', topic='A.78')
         expected_documents = {
             '493764',
             '493782',
@@ -300,7 +300,7 @@ class TestGetJudgedDocuments(unittest.TestCase):
         self.assertEqual(expected_documents, documents)
 
     def test_selected_subsets_selected_topics(self):
-        documents = get_judged_documents('task1', 'train', 'A.31')
+        documents = get_judged_documents('task1-example', 'train', 'A.31')
         expected_documents = {
             '48162',
             '48164',
@@ -355,19 +355,19 @@ class TestGetJudgedDocuments(unittest.TestCase):
         }
         self.assertEqual(expected_documents, documents)
 
-        documents = get_judged_documents('task1', 'validation', 'A.31')
+        documents = get_judged_documents('task1-example', 'validation', 'A.31')
         expected_documents = set()
         self.assertEqual(expected_documents, documents)
 
-        documents = get_judged_documents('task1', 'test', 'A.31')
+        documents = get_judged_documents('task1-example', 'test', 'A.31')
         expected_documents = set()
         self.assertEqual(expected_documents, documents)
 
-        documents = get_judged_documents('task1', 'train', 'A.101')
+        documents = get_judged_documents('task1-example', 'train', 'A.101')
         expected_documents = set()
         self.assertEqual(expected_documents, documents)
 
-        documents = get_judged_documents('task1', 'validation', 'A.101')
+        documents = get_judged_documents('task1-example', 'validation', 'A.101')
         expected_documents = {
             '263828',
             '264299',
@@ -391,19 +391,19 @@ class TestGetJudgedDocuments(unittest.TestCase):
         }
         self.assertEqual(expected_documents, documents)
 
-        documents = get_judged_documents('task1', 'test', 'A.101')
+        documents = get_judged_documents('task1-example', 'test', 'A.101')
         expected_documents = set()
         self.assertEqual(expected_documents, documents)
 
-        documents = get_judged_documents('task1', 'train', 'A.78')
+        documents = get_judged_documents('task1-example', 'train', 'A.78')
         expected_documents = set()
         self.assertEqual(expected_documents, documents)
 
-        documents = get_judged_documents('task1', 'validation', 'A.78')
+        documents = get_judged_documents('task1-example', 'validation', 'A.78')
         expected_documents = set()
         self.assertEqual(expected_documents, documents)
 
-        documents = get_judged_documents('task1', 'test', 'A.78')
+        documents = get_judged_documents('task1-example', 'test', 'A.78')
         expected_documents = {
             '493764',
             '493782',

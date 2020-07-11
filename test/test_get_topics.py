@@ -6,29 +6,29 @@ from arqmath_eval.configuration import TASKS
 
 class TestGetTopics(unittest.TestCase):
     def test_all_subsets(self):
-        topics = get_topics('task1')
+        topics = get_topics('task1-example')
         expected_topics = {'A.31', 'A.101', 'A.78'}
         self.assertEqual(expected_topics, topics)
 
     def test_selected_subsets(self):
-        topics = get_topics('task1', 'train')
+        topics = get_topics('task1-example', 'train')
         expected_topics = {'A.31'}
         self.assertEqual(expected_topics, topics)
 
-        topics = get_topics('task1', 'validation')
+        topics = get_topics('task1-example', 'validation')
         expected_topics = {'A.101'}
         self.assertEqual(expected_topics, topics)
 
-        topics = get_topics('task1', 'test')
+        topics = get_topics('task1-example', 'test')
         expected_topics = {'A.78'}
         self.assertEqual(expected_topics, topics)
 
     def test_train_validation_test_split(self):
         for task in TASKS:
-            train_topics = get_topics('task1', 'train')
-            validation_topics = get_topics('task1', 'validation')
-            test_topics = get_topics('task1', 'test')
-            all_topics = get_topics('task1')
+            train_topics = get_topics('task1-example', 'train')
+            validation_topics = get_topics('task1-example', 'validation')
+            test_topics = get_topics('task1-example', 'test')
+            all_topics = get_topics('task1-example')
             self.assertEqual(len(validation_topics), len(test_topics))
 
             train_ratio = len(train_topics) / len(all_topics)

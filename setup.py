@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='arqmath_eval',
-    version='0.0.12',
+    version='0.0.13',
     description='Evaluation of ARQMath systems',
     packages=['arqmath_eval'],
     package_dir={'arqmath_eval': 'scripts'},
@@ -34,6 +34,14 @@ setup(
             'votes-qrels-test.V1.0.tsv',
             'votes-qrels.V1.2.tsv',
             'topics-formula_ids-qrels.V1.1.tsv',
+            'qrel_task1-test.tsv',
+            'qrel_task1-train.tsv',
+            'qrel_task1.tsv',
+            'qrel_task1-validation.tsv',
+            'qrel_task2-test.tsv',
+            'qrel_task2-train.tsv',
+            'qrel_task2.tsv',
+            'qrel_task2-validation.tsv',
         ],
     },
     include_package_data=True,

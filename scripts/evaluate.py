@@ -22,6 +22,8 @@ def evaluate_worker(result_filename):
 
 if __name__ == '__main__':
     for task in TASKS:
+        if not os.path.exists(task):
+            continue
         random_ndcg = get_random_ndcg(task, 'validation')
         users = glob(os.path.join(task, '*', ''))
         task_results = [(random_ndcg, 'random', 'xrando42')]

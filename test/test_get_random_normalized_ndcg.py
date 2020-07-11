@@ -7,13 +7,13 @@ from arqmath_eval import get_random_ndcg, get_random_normalized_ndcg
 class TestGetRandomNormalizedNDCG(unittest.TestCase):
     def test_hand_picked(self):
         parsed_run = {}
-        random_ndcg = get_random_ndcg('task1', 'test')
+        random_ndcg = get_random_ndcg('task1-example', 'test')
 
-        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1', 'test', ndcg=1.0)
+        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1-example', 'test', ndcg=1.0)
         expected_random_normalized_ndcg = 1.0
         self.assertEqual(expected_random_normalized_ndcg, random_normalized_ndcg)
 
-        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1', 'test', ndcg=random_ndcg)
+        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1-example', 'test', ndcg=random_ndcg)
         expected_random_normalized_ndcg = 0.0
         self.assertEqual(expected_random_normalized_ndcg, random_normalized_ndcg)
 
@@ -40,7 +40,7 @@ class TestGetRandomNormalizedNDCG(unittest.TestCase):
                 '1282114': 0.15,
             }
         }
-        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1', 'test')
+        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1-example', 'test')
 
         expected_random_normalized_ndcg = 1.0
 
@@ -69,7 +69,7 @@ class TestGetRandomNormalizedNDCG(unittest.TestCase):
                 '1282114': 1.00,
             }
         }
-        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1', 'test')
+        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1-example', 'test')
 
         expected_dcg = 0.0
         for i in range(1, 3):
@@ -92,7 +92,7 @@ class TestGetRandomNormalizedNDCG(unittest.TestCase):
             expected_idcg += 0.0 / log2(i + 1)
 
         expected_ndcg = expected_dcg / expected_idcg
-        random_ndcg = get_random_ndcg('task1', 'test')
+        random_ndcg = get_random_ndcg('task1-example', 'test')
         expected_random_normalized_ndcg = (expected_ndcg - random_ndcg) / (1.0 - random_ndcg)
         self.assertEqual(expected_random_normalized_ndcg, random_normalized_ndcg)
 
@@ -119,7 +119,7 @@ class TestGetRandomNormalizedNDCG(unittest.TestCase):
                 '1282114': 0.15,
             }
         }
-        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1', 'test', 4)
+        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1-example', 'test', 4)
 
         expected_dcg = 0.0
         for i in range(1, 5):
@@ -136,7 +136,7 @@ class TestGetRandomNormalizedNDCG(unittest.TestCase):
             expected_idcg += 0.0 / log2(i + 1)
 
         expected_ndcg = expected_dcg / expected_idcg
-        random_ndcg = get_random_ndcg('task1', 'test', 4)
+        random_ndcg = get_random_ndcg('task1-example', 'test', 4)
         expected_random_normalized_ndcg = (expected_ndcg - random_ndcg) / (1.0 - random_ndcg)
         self.assertEqual(expected_random_normalized_ndcg, random_normalized_ndcg)
 
@@ -163,7 +163,7 @@ class TestGetRandomNormalizedNDCG(unittest.TestCase):
                 '1282114': 1.00,
             }
         }
-        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1', 'test', 4)
+        random_normalized_ndcg = get_random_normalized_ndcg(parsed_run, 'task1-example', 'test', 4)
 
         expected_dcg = 0.0
         for i in range(1, 3):
@@ -182,6 +182,6 @@ class TestGetRandomNormalizedNDCG(unittest.TestCase):
             expected_idcg += 0.0 / log2(i + 1)
 
         expected_ndcg = expected_dcg / expected_idcg
-        random_ndcg = get_random_ndcg('task1', 'test', 4)
+        random_ndcg = get_random_ndcg('task1-example', 'test', 4)
         expected_random_normalized_ndcg = (expected_ndcg - random_ndcg) / (1.0 - random_ndcg)
         self.assertEqual(expected_random_normalized_ndcg, random_normalized_ndcg)

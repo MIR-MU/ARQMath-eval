@@ -14,3 +14,11 @@ include scripts/votes-qrels-train.V1.0.tsv
 include scripts/votes-qrels-small-validation.V1.0.tsv
 include scripts/votes-qrels-validation.V1.0.tsv
 include scripts/votes-qrels-test.V1.0.tsv
+include scripts/qrel_task1-test.tsv
+include scripts/qrel_task1-train.tsv
+include scripts/qrel_task1.tsv
+include scripts/qrel_task1-validation.tsv
+include scripts/qrel_task2-test.tsv
+include scripts/qrel_task2-train.tsv
+include scripts/qrel_task2.tsv
+include scripts/qrel_task2-validation.tsv

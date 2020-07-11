@@ -1,4 +1,4 @@
-This table contains the best result for every user on the *task1* task.
+This table contains the best result for every user on the *task1-example* task.
 
 | nDCG | Result name | User |
 |:-----|:------------|------|

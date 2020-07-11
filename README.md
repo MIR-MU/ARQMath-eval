@@ -3,16 +3,18 @@
 This repository evaluates the performance of your information retrieval system
 on a number of *tasks*:
 
-- `task1` – [ARQMath Task1][arqmath-task1] validation dataset,
+- `task1-example` – [ARQMath Task1][arqmath-task1] example dataset,
 - `task1-votes` – [ARQMath Task1][arqmath-task1] Math StackExchange [user votes][],
-- `ntcir-11-math-2-main` – [NTCIR-11 Math-2 Task Main Subtask][ntcir-11-math-2], and
-- `ntcir-12-mathir-arxiv-main` – [NTCIR-12 MathIR Task ArXiv Main Subtask][ntcir-12-mathir].
+- `task1` – [ARQMath Task1][arqmath-task1] final dataset,
+- `ntcir-11-math-2-main` – [NTCIR-11 Math-2 Task Main Subtask][ntcir-11-math-2],
+- `ntcir-12-mathir-arxiv-main` – [NTCIR-12 MathIR Task ArXiv Main Subtask][ntcir-12-mathir], and
 - `ntcir-12-mathir-math-wiki-formula` – [NTCIR-12 MathIR Task MathWikiFormula Subtask][ntcir-12-mathir].
+- `task2` – [ARQMath Task2][arqmath-task2] final dataset,
 
 The main tasks are:
 
-- `task1-votes` – Use this task to evaluate your ARQMath task 1 system.
-- `ntcir-12-mathir-math-wiki-formula` – Use this task to evaluate your ARQMath task 2 system.
+- `task1` – Use this task to evaluate your ARQMath task 1 system.
+- `task2` – Use this task to evaluate your ARQMath task 2 system.
 
 #### Subsets
 Each task comes with three *subsets*:
@@ -26,7 +28,11 @@ Each task comes with three *subsets*:
   used at the end to compare the systems, which performed best on the
   validation set.
 
-### Usage
+The `task1` and `task2` tasks come also with the `all` subset, which contains
+all relevance judgements. Use these to evaluate a system that has not been
+trained using subsets of the `task1` and `task2` tasks.
+
+### Examples
 #### Using the `train` set to train your supervised system
 
 ``` sh
@@ -34,7 +40,7 @@ $ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-e
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents, get_ndcg
 >>>
->>> task = 'task1-votes'
+>>> task = 'task1'
 >>> subset = 'train'
 >>> results = {}
 >>> for topic in get_topics(task=task, subset=subset):
@@ -62,7 +68,7 @@ $ pip install --force-reinstall git+https://gitlab.fi.muni.cz/xstefan3/arqmath-e
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents
 >>>
->>> task = 'task1-votes'
+>>> task = 'task1'
 >>> subset = 'validation'
 >>> results = {}
 >>> for topic in get_topics(task=task, subset=subset):
@@ -90,6 +96,7 @@ $ git push                                 # publish your new result and the upd
 ```
 
  [arqmath-task1]:              https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
+ [arqmath-task2]:              https://www.cs.rit.edu/~dprl/ARQMath/task2-formulas.html (Task 2: Formula Search)
  [get_judged_documents]:       https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L61
  [get_ndcg]:                   https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L94
  [get_random_ndcg]:            https://gitlab.fi.muni.cz/xstefan3/arqmath-eval/-/blob/master/scripts/common.py#L129

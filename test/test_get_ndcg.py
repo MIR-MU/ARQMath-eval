@@ -28,7 +28,7 @@ class TestGetNDCG(unittest.TestCase):
                 '1282114': 0.15,
             }
         }
-        ndcg = get_ndcg(parsed_run, 'task1', 'test')
+        ndcg = get_ndcg(parsed_run, 'task1-example', 'test')
         expected_ndcg = 1.0
         self.assertEqual(expected_ndcg, ndcg)
 
@@ -59,7 +59,7 @@ class TestGetNDCG(unittest.TestCase):
                 '692232': 0.50,    
             },
         }
-        ndcg = get_ndcg(parsed_run, 'task1', 'test')
+        ndcg = get_ndcg(parsed_run, 'task1-example', 'test')
         expected_ndcg = 1.0
         self.assertEqual(expected_ndcg, ndcg)
 
@@ -88,7 +88,7 @@ class TestGetNDCG(unittest.TestCase):
                 'unjudged_2': 0.05,
             },
         }
-        ndcg = get_ndcg(parsed_run, 'task1', 'test')
+        ndcg = get_ndcg(parsed_run, 'task1-example', 'test')
         expected_ndcg = 1.0
         self.assertEqual(expected_ndcg, ndcg)
 
@@ -121,7 +121,7 @@ class TestGetNDCG(unittest.TestCase):
                 '692232': 0.50,    
             },
         }
-        ndcg = get_ndcg(parsed_run, 'task1', 'test')
+        ndcg = get_ndcg(parsed_run, 'task1-example', 'test')
         expected_ndcg = 1.0
         self.assertEqual(expected_ndcg, ndcg)
 
@@ -148,7 +148,7 @@ class TestGetNDCG(unittest.TestCase):
                 '1282114': 1.00,
             }
         }
-        ndcg = get_ndcg(parsed_run, 'task1', 'test')
+        ndcg = get_ndcg(parsed_run, 'task1-example', 'test')
 
         expected_dcg = 0.0
         for i in range(1, 3):
@@ -196,7 +196,7 @@ class TestGetNDCG(unittest.TestCase):
                 '1282114': 0.15,
             }
         }
-        ndcg = get_ndcg(parsed_run, 'task1', 'test', 4)
+        ndcg = get_ndcg(parsed_run, 'task1-example', 'test', 4)
 
         expected_dcg = 0.0
         for i in range(1, 5):
@@ -238,7 +238,7 @@ class TestGetNDCG(unittest.TestCase):
                 '1282114': 1.00,
             }
         }
-        ndcg = get_ndcg(parsed_run, 'task1', 'test', 4)
+        ndcg = get_ndcg(parsed_run, 'task1-example', 'test', 4)
 
         expected_dcg = 0.0
         for i in range(1, 3):
