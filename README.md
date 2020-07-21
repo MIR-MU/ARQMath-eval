@@ -36,7 +36,7 @@ trained using subsets of the `task1` and `task2` tasks.
 #### Using the `train` subset to train your supervised system
 
 ``` sh
-$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.14
+$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.15
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents, get_ndcg
 >>>
@@ -60,11 +60,12 @@ Here is the documentation of the available evaluation functions:
 - [`get_random_ndcg(task, subset, topn)`][get_random_ndcg],
 - [`get_ndcg(parsed_run, task, subset, topn)`][get_ndcg], and
 - [`get_random_normalized_ndcg(parsed_run, task, subset, topn, ndcg)`][get_random_normalized_ndcg].
+- [`get_judgement(task, subset, topic, judged_document)`][get_judgement].
 
 #### Using the `validation` subset to compare various parameters of your system
 
 ``` sh
-$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.14
+$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.15
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents
 >>>
@@ -95,7 +96,7 @@ $ git push                                 # publish your new result and the upd
 #### Using the `all` subset to compute the NDCG' score of an ARQMath submission
 
 ``` sh
-$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.14
+$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.15
 $ python -m arqmath_eval.evaluate MIRMU-task1-Ensemble-auto-both-A.tsv
 0.238
 ```
@@ -106,6 +107,7 @@ $ python -m arqmath_eval.evaluate MIRMU-task1-Ensemble-auto-both-A.tsv
  [get_ndcg]:                   https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L94
  [get_random_ndcg]:            https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L129
  [get_random_normalized_ndcg]: https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L174
+ [get_judgement]:              https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L213
  [get_topics]:                 https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L34
  [ntcir-11-math-2]:            http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
  [ntcir-12-mathir]:            https://www.cs.rit.edu/~rlaz/files/ntcir12-mathir.pdf (NTCIR-12 MathIR Task Overview)

@@ -208,3 +208,41 @@ def get_random_normalized_ndcg(parsed_run, task, subset, topn=1000, ndcg=None):
     random_ndcg = get_random_ndcg(task, subset, topn)
     random_normalized_ndcg = (ndcg - random_ndcg) / (1.0 - random_ndcg)
     return random_normalized_ndcg
+
+
+def get_judgement(task, subset, topic, judged_document):
+    """Returns judgement of a document in a topic from a subset of a task, or None if none exists.
+
+    NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all
+    non-judged documents in the run are disregarded, see
+    https://www.cs.rit.edu/~dprl/ARQMath/, section Ranking metrics.
+
+    The random-normalized NDCG' takes the expected NDCG' of a random system
+    into account. NDCG' of 1.0 is normalized to 1.0, NDCG' of a random system
+    is normalized to 0.0, NDCG' worse that a random system is normalized to 0.0.
+
+    Parameters
+    ----------
+    task : str
+        A task.
+    subset : str
+        A subset of the task.
+    topic : str
+        A topic from the subset.
+    judged_document : str
+        A document in the topic.
+
+    Returns
+    -------
+    judgement : int or None
+        Returns judgement of a document in a topic for subset of a task, or None if none exists.
+
+    """
+    if subset not in PARSED_RELEVANCE_JUDGEMENTS \
+            or task not in PARSED_RELEVANCE_JUDGEMENTS[subset] \
+            or topic not in PARSED_RELEVANCE_JUDGEMENTS[subset][task] \
+            or judged_document not in PARSED_RELEVANCE_JUDGEMENTS[subset][task][topic]:
+        judgement = None
+    else:
+        judgement = PARSED_RELEVANCE_JUDGEMENTS[subset][task][topic][judged_document]
+    return judgement
