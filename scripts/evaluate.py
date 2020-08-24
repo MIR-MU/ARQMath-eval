@@ -63,7 +63,7 @@ def produce_leaderboards():
                     f_readme.write('|  %.4f  |  %s  |  %s  |\n' % (ndcg, result_name, user_name))
 
 
-def evaluate_run(filename):
+def evaluate_run(filename, subset):
     with open(filename, 'rt') as f:
         lines = [line.strip().split() for line in f]
     first_line = lines[0]
@@ -84,7 +84,7 @@ def evaluate_run(filename):
         if topic_id not in parsed_result:
             parsed_result[topic_id] = dict()
         parsed_result[topic_id][result_id] = 1.0 / int(rank)
-    ndcg = get_ndcg(parsed_result, task, 'all')
+    ndcg = get_ndcg(parsed_result, task, subset)
     print('%.3f' % ndcg)
 
 
@@ -92,7 +92,8 @@ if __name__ == '__main__':
     if len(sys.argv) == 1:
         produce_leaderboards()
     elif len(sys.argv) == 2:
-        filename = sys.argv[1]
-        evaluate_run(filename)
+        evaluate_run(sys.argv[1], 'all')
+    elif len(sys.argv) == 3:
+        evaluate_run(sys.argv[1], sys.argv[2])
     else:
-        raise ValueError("Expected either zero (produce leaderboards) or one (produce NDCG' score for a file with task 1 or 2 result) arguments")
+        raise ValueError("Usage: {} [TSV_FILE [SUBSET]]".format(sys.argv[0]))

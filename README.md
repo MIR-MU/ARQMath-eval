@@ -36,7 +36,7 @@ trained using subsets of the `task1` and `task2` tasks.
 #### Using the `train` subset to train your supervised system
 
 ``` sh
-$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.15
+$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.16
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents, get_ndcg
 >>>
@@ -65,7 +65,7 @@ Here is the documentation of the available evaluation functions:
 #### Using the `validation` subset to compare various parameters of your system
 
 ``` sh
-$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.15
+$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.16
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents
 >>>
@@ -96,8 +96,8 @@ $ git push                                 # publish your new result and the upd
 #### Using the `all` subset to compute the NDCG' score of an ARQMath submission
 
 ``` sh
-$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.15
-$ python -m arqmath_eval.evaluate MIRMU-task1-Ensemble-auto-both-A.tsv
+$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.16
+$ python -m arqmath_eval.evaluate MIRMU-task1-Ensemble-auto-both-A.tsv all
 0.238
 ```
 
