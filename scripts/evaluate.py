@@ -79,11 +79,15 @@ def evaluate_run(filename, subset):
             'received %d-tuples: %s' % (n, first_line)
         )
     parsed_result = dict()
+    rank_offset = 0
     for line in lines:
         topic_id, result_id, *_, rank, __, ___ = line
+        # support indexing of ranks starting from 0
+        if int(rank) == 0:
+            rank_offset = 1
         if topic_id not in parsed_result:
             parsed_result[topic_id] = dict()
-        parsed_result[topic_id][result_id] = 1.0 / int(rank)
+        parsed_result[topic_id][result_id] = 1.0 / (int(rank) + rank_offset)
     ndcg = get_ndcg(parsed_result, task, subset)
     print('%.3f' % ndcg)
 
