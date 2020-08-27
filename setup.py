@@ -5,13 +5,14 @@ from setuptools import setup
 
 setup(
     name='arqmath_eval',
-    version='0.0.17',
+    version='0.0.18',
     description='Evaluation of ARQMath systems',
     packages=['arqmath_eval'],
     package_dir={'arqmath_eval': 'scripts'},
     install_requires=[
         'numpy~=1.18.2',
         'pytrec-eval~=0.4',
+        'scipy~=1.5.2',
         'tqdm~=4.46.0',
     ],
     package_data={

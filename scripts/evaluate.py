@@ -63,7 +63,7 @@ def produce_leaderboards():
                     f_readme.write('|  %.4f  |  %s  |  %s  |\n' % (ndcg, result_name, user_name))
 
 
-def evaluate_run(filename, subset):
+def evaluate_run(filename, subset, confidence=95.0):
     with open(filename, 'rt') as f:
         lines = [line.strip().split() for line in f]
     first_line = lines[0]
@@ -88,8 +88,8 @@ def evaluate_run(filename, subset):
         if topic_id not in parsed_result:
             parsed_result[topic_id] = dict()
         parsed_result[topic_id][result_id] = 1.0 / (int(rank) + rank_offset)
-    ndcg = get_ndcg(parsed_result, task, subset)
-    print('%.3f' % ndcg)
+    ndcg, interval = get_ndcg(parsed_result, task, subset, confidence=confidence)
+    print('%.3f, %g%% CI: [%.3f; %.3f]' % (ndcg, confidence, *interval))
 
 
 if __name__ == '__main__':

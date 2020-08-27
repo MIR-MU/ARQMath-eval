@@ -5,6 +5,7 @@ from itertools import chain
 from math import log2
 
 import numpy as np
+import scipy.stats as st
 
 from .configuration import EVALUATORS, PARSED_RELEVANCE_JUDGEMENTS
 
@@ -91,7 +92,7 @@ def get_judged_documents(task, subset=None, topic=None):
     return judged_documents
 
 
-def get_ndcg(parsed_run, task, subset, topn=1000):
+def get_ndcg(parsed_run, task, subset, topn=1000, confidence=None):
     """Returns the NDCG' of a system's run on a subset of a task.
 
     NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all
@@ -109,11 +110,16 @@ def get_ndcg(parsed_run, task, subset, topn=1000):
     topn : int, optional
         The top N results, which will be considered in computing the NDCG.
         Default is 1000.
+    confidence : float or None, optional
+        The confidence level used to construct a confidence interval.
+        If None, then no confidence interval is constructed. Default is None.
 
     Returns
     -------
     ndcg : float
         The NDCG' of the system's run on the subset of the task.
+    interval : (float, float), optional
+        The confidence interval for the NDCG'. Only produced when confidence is not None.
 
     """
     evaluator = EVALUATORS[subset][task]
@@ -122,8 +128,13 @@ def get_ndcg(parsed_run, task, subset, topn=1000):
     if not parsed_run:
         return 0.0
     evaluation = evaluator.evaluate(parsed_run)
-    ndcg = np.mean([measures['ndcg'] for topic, measures in evaluation.items()])
-    return ndcg
+    sample = [measures['ndcg'] for topic, measures in evaluation.items()]
+    ndcg = np.mean(sample)
+    if confidence is not None:
+        interval = st.t.interval(confidence / 100.0, len(sample) - 1, loc=ndcg, scale=st.sem(sample))
+        return (ndcg, interval)
+    else:
+        return ndcg
 
 
 def get_random_ndcg(task, subset, topn=1000):
