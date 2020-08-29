@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 from glob import glob
+from itertools import repeat
 from multiprocessing import Pool
 import os.path
 import re
@@ -13,7 +14,8 @@ from .common import get_ndcg, get_random_ndcg
 from .configuration import TASKS, USER_README_HEAD, TASK_README_HEAD
 
 
-def evaluate_worker(result_filename):
+def evaluate_worker(args):
+    task, result_filename = args
     result_name = re.sub('_', ', ', os.path.basename(result_filename)[:-4])
     with open(result_filename, 'rt') as f:
         parsed_result = parse_run(f)
@@ -35,6 +37,7 @@ def produce_leaderboards():
             results = glob(os.path.join(user, '*.tsv'))
             if results:
                 results = tqdm(results, desc='Evaluating {} results'.format(user))
+                results = zip(repeat(task), results)
                 with Pool(None) as pool:
                     for result_name, ndcg in pool.map(evaluate_worker, results):
                         user_results.append((ndcg, result_name))
