@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 
 from copy import deepcopy
-from itertools import chain
 from math import log2
 
 import numpy as np

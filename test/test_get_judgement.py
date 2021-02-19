@@ -1,4 +1,3 @@
-from math import log2
 import unittest
 
 from arqmath_eval import get_judgement

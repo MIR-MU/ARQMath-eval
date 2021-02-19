@@ -55,8 +55,8 @@ class TestGetNDCG(unittest.TestCase):
                 '1282114': 0.15,
             },
             'A.31': {
-                '439044': 1.00,    
-                '692232': 0.50,    
+                '439044': 1.00,
+                '692232': 0.50,
             },
         }
         ndcg = get_ndcg(parsed_run, 'task1-example', 'test')
@@ -117,8 +117,8 @@ class TestGetNDCG(unittest.TestCase):
                 'unjudged_2': 0.05,
             },
             'A.31': {
-                '439044': 1.00,    
-                '692232': 0.50,    
+                '439044': 1.00,
+                '692232': 0.50,
             },
         }
         ndcg = get_ndcg(parsed_run, 'task1-example', 'test')
