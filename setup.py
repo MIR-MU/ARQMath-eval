@@ -5,15 +5,15 @@ from setuptools import setup
 
 setup(
     name='arqmath_eval',
-    version='0.0.19',
+    version='0.0.20'
     description='Evaluation of ARQMath systems',
     packages=['arqmath_eval'],
     package_dir={'arqmath_eval': 'scripts'},
     install_requires=[
-        'numpy~=1.18.2',
-        'pytrec-eval~=0.4',
-        'scipy~=1.5.2',
-        'tqdm~=4.46.0',
+        'numpy>=1.18.2',
+        'pytrec-eval>=0.4',
+        'scipy>=1.5.2',
+        'tqdm>=4.46.0',
     ],
     package_data={
         'arqmath_eval': [
@@ -43,6 +43,12 @@ setup(
             'qrel_task2-train.tsv',
             'qrel_task2.tsv',
             'qrel_task2-validation.tsv',
+            'qrel_task1-bigger-train-pv211-utils.tsv',
+            'qrel_task1-smaller-train-pv211-utils.tsv',
+            'qrel_task1-smaller-validation-pv211-utils.tsv',
+            'qrel_task1-test-pv211-utils.tsv',
+            'qrel_task1-train-pv211-utils.tsv',
+            'qrel_task1-validation-pv211-utils.tsv',
         ],
     },
     include_package_data=True,
