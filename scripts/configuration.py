@@ -27,6 +27,15 @@ RELEVANCE_JUDGEMENTS = {
         'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-train.dat',
         'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-train.dat',
     },
+    'train-pv211-utils': {
+        'task1': 'qrel_task1-train-pv211-utils.tsv',
+    },
+    'smaller-train-pv211-utils': {
+        'task1': 'qrel_task1-smaller-train-pv211-utils.tsv',
+    },
+    'bigger-train-pv211-utils': {
+        'task1': 'qrel_task1-bigger-train-pv211-utils.tsv',
+    },
     'small-validation': {
         'task1-votes': 'votes-qrels-small-validation.V1.0.tsv',
     },
@@ -39,6 +48,12 @@ RELEVANCE_JUDGEMENTS = {
         'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-validation.dat',
         'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-validation.dat',
     },
+    'validation-pv211-utils': {
+        'task1': 'qrel_task1-validation-pv211-utils.tsv',
+    },
+    'smaller-validation-pv211-utils': {
+        'task1': 'qrel_task1-smaller-validation-pv211-utils.tsv',
+    },
     'test': {
         'task1': 'qrel_task1-test.tsv',
         'task2': 'qrel_task2-test.tsv',
@@ -47,6 +62,9 @@ RELEVANCE_JUDGEMENTS = {
         'ntcir-11-math-2-main': 'NTCIR11_Math-qrels-test.dat',
         'ntcir-12-mathir-arxiv-main': 'NTCIR12_Math-qrels_agg-test.dat',
         'ntcir-12-mathir-math-wiki-formula': 'NTCIR12_MathWikiFrm-qrels_agg-test.dat',
+    },
+    'test-pv211-utils': {
+        'task1': 'qrel_task1-test-pv211-utils.tsv',
     },
     'all': {
         'task1': 'qrel_task1.tsv',
