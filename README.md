@@ -8,14 +8,14 @@ on a number of *tasks*:
 - `task1`, `task1-2020` – [ARQMath Task1][arqmath-task1] final dataset,
 - `task1-2021` – [ARQMath-2 Task1][arqmath-task1] final dataset,
 - `ntcir-11-math-2-main` – [NTCIR-11 Math-2 Task Main Subtask][ntcir-11-math-2],
-- `ntcir-12-mathir-arxiv-main` – [NTCIR-12 MathIR Task ArXiv Main Subtask][ntcir-12-mathir], and
-- `ntcir-12-mathir-math-wiki-formula` – [NTCIR-12 MathIR Task MathWikiFormula Subtask][ntcir-12-mathir].
-- `task2`, `task2-2020` – [ARQMath Task2][arqmath-task2] final dataset,
-- `task2-2021` – [ARQMath-2 Task2][arqmath-task2] final dataset,
+- `ntcir-12-mathir-arxiv-main` – [NTCIR-12 MathIR Task ArXiv Main Subtask][ntcir-12-mathir],
+- `ntcir-12-mathir-math-wiki-formula` – [NTCIR-12 MathIR Task MathWikiFormula Subtask][ntcir-12-mathir],
+- `task2`, `task2-2020` – [ARQMath Task2][arqmath-task2] final dataset, and
+- `task2-2021` – [ARQMath-2 Task2][arqmath-task2] final dataset.
 
 The main tasks are:
 
-- `task1` – Use this task to evaluate your ARQMath task 1 system.
+- `task1` – Use this task to evaluate your ARQMath task 1 system, and
 - `task2` – Use this task to evaluate your ARQMath task 2 system.
 
 #### Subsets
