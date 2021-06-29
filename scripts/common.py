@@ -5,11 +5,20 @@ from math import log2
 
 import numpy as np
 import scipy.stats as st
+from typing import Optional, Set
 
 from .configuration import EVALUATORS, PARSED_RELEVANCE_JUDGEMENTS
 
 
-def _remove_nonjudged_topics_and_documents(parsed_run, task, subset):
+Scores = dict[str, float]
+ParsedRun = dict[str, Scores]
+Task = str
+Subset = str
+Topic = str
+Document = str
+
+
+def _remove_nonjudged_topics_and_documents(parsed_run: ParsedRun, task: Task, subset: Subset) -> ParsedRun:
     parsed_relevance_judgements = PARSED_RELEVANCE_JUDGEMENTS[subset][task]
     only_judged_parsed_run = deepcopy(parsed_run)
     for topic_name, results in parsed_run.items():
@@ -23,7 +32,7 @@ def _remove_nonjudged_topics_and_documents(parsed_run, task, subset):
     return only_judged_parsed_run
 
 
-def _clip_topn(parsed_run, topn):
+def _clip_topn(parsed_run: ParsedRun, topn: int) -> ParsedRun:
     clipped_parsed_run = {}
     for topic, documents in parsed_run.items():
         clipped_documents = sorted(documents.items(), key=lambda x: x[1], reverse=True)[:topn]
@@ -31,7 +40,7 @@ def _clip_topn(parsed_run, topn):
     return clipped_parsed_run
 
 
-def get_topics(task, subset=None):
+def get_topics(task: Task, subset: Optional[Subset] = None) -> Set[Topic]:
     """Returns the identifiers of topics for a subset of a task.
 
     Parameters
@@ -58,7 +67,7 @@ def get_topics(task, subset=None):
     return topics
 
 
-def get_judged_documents(task, subset=None, topic=None):
+def get_judged_documents(task: Task, subset: Optional[Subset] = None, topic: Optional[Topic] = None) -> Set[Document]:
     """Returns the judged documents of a topic in a subset of a task.
 
     Parameters
@@ -91,7 +100,8 @@ def get_judged_documents(task, subset=None, topic=None):
     return judged_documents
 
 
-def get_ndcg(parsed_run, task, subset, topn=1000, confidence=None):
+def get_ndcg(parsed_run: ParsedRun, task: Task, subset: Subset, topn: int = 1000,
+             confidence: Optional[float] = None):
     """Returns the NDCG' of a system's run on a subset of a task.
 
     NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all
@@ -136,7 +146,7 @@ def get_ndcg(parsed_run, task, subset, topn=1000, confidence=None):
         return ndcg
 
 
-def get_random_ndcg(task, subset, topn=1000):
+def get_random_ndcg(task: Task, subset: Subset, topn: int = 1000) -> float:
     """Returns the expected NDCG' of a random system on a subset of a task.
 
     NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all
@@ -181,7 +191,8 @@ def get_random_ndcg(task, subset, topn=1000):
     return np.mean(random_ndcgs)
 
 
-def get_random_normalized_ndcg(parsed_run, task, subset, topn=1000, ndcg=None):
+def get_random_normalized_ndcg(parsed_run: ParsedRun, task: Task, subset: Subset, topn: int = 1000,
+                               ndcg: Optional[float] = None) -> float:
     """Returns the random-normalized NDCG' of a system's run on a subset of a task.
 
     NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all
@@ -220,7 +231,7 @@ def get_random_normalized_ndcg(parsed_run, task, subset, topn=1000, ndcg=None):
     return random_normalized_ndcg
 
 
-def get_judgement(task, subset, topic, judged_document):
+def get_judgement(task: Task, subset: Subset, topic: Topic, judged_document: Document) -> Optional[int]:
     """Returns judgement of a document in a topic from a subset of a task, or None if none exists.
 
     NDCG' is the same as NDCG (Normalized Discounted Cumulative Gain), but all

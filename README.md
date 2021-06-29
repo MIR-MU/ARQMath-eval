@@ -74,15 +74,6 @@ $ python
 0.5876
 ```
 
-Here is the documentation of the available evaluation functions:
-
-- [`get_topics(task, subset=None)`][get_topics],
-- [`get_judged_documents(task, subset=None, topic=None)`][get_judged_documents],
-- [`get_random_ndcg(task, subset, topn)`][get_random_ndcg],
-- [`get_ndcg(parsed_run, task, subset, topn, confidence)`][get_ndcg], and
-- [`get_random_normalized_ndcg(parsed_run, task, subset, topn, ndcg)`][get_random_normalized_ndcg].
-- [`get_judgement(task, subset, topic, judged_document)`][get_judgement].
-
 #### Using the `validation` subset to compare various parameters of your system
 
 ``` sh
@@ -125,12 +116,6 @@ $ python -m arqmath_eval.evaluate MIRMU-task1-Ensemble-auto-both-A.tsv all 2020
 
  [arqmath-task1]:              https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
  [arqmath-task2]:              https://www.cs.rit.edu/~dprl/ARQMath/task2-formulas.html (Task 2: Formula Search)
- [get_topics]:                 https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L35
- [get_judged_documents]:       https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L62
- [get_ndcg]:                   https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L95
- [get_random_ndcg]:            https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L140
- [get_random_normalized_ndcg]: https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L185
- [get_judgement]:              https://github.com/MIR-MU/ARQMath-eval/blob/master/scripts/common.py#L224
  [ntcir-11-math-2]:            http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
  [ntcir-12-mathir]:            https://www.cs.rit.edu/~rlaz/files/ntcir12-mathir.pdf (NTCIR-12 MathIR Task Overview)
  [treceval-format]:            https://stackoverflow.com/a/8175382/657401 (How to evaluate a search/retrieval engine using trec_eval?)
