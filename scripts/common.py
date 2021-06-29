@@ -2,16 +2,16 @@
 
 from copy import deepcopy
 from math import log2
+from typing import Optional, Set, Dict
 
 import numpy as np
 import scipy.stats as st
-from typing import Optional, Set
 
 from .configuration import EVALUATORS, PARSED_RELEVANCE_JUDGEMENTS
 
 
-Scores = dict[str, float]
-ParsedRun = dict[str, Scores]
+Scores = Dict[str, float]
+ParsedRun = Dict[str, Scores]
 Task = str
 Subset = str
 Topic = str
