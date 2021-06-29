@@ -66,15 +66,15 @@ def produce_leaderboards():
                     f_readme.write('|  %.4f  |  %s  |  %s  |\n' % (ndcg, result_name, user_name))
 
 
-def evaluate_run(filename, subset, confidence=95.0):
+def evaluate_run(filename, subset, year, confidence=95.0):
     with open(filename, 'rt') as f:
         lines = [line.strip().split() for line in f]
     first_line = lines[0]
     n = len(first_line)
     if n == 5:
-        task = 'task1'
+        task = 'task1-{}'.format(year)
     elif n == 6:
-        task = 'task2'
+        task = 'task2-{}'.format(year)
     else:
         raise ValueError(
             'Expected lines as 5-tuples (Query_Id, Post_Id, Rank, Score, Run_Number) for task 1, '
@@ -99,8 +99,10 @@ if __name__ == '__main__':
     if len(sys.argv) == 1:
         produce_leaderboards()
     elif len(sys.argv) == 2:
-        evaluate_run(sys.argv[1], 'all')
+        evaluate_run(sys.argv[1], 'all', 2020)
     elif len(sys.argv) == 3:
-        evaluate_run(sys.argv[1], sys.argv[2])
+        evaluate_run(sys.argv[1], sys.argv[2], 2020)
+    elif len(sys.argv) == 4:
+        evaluate_run(sys.argv[1], sys.argv[2], int(sys.argv[3]))
     else:
-        raise ValueError("Usage: {} [TSV_FILE [SUBSET]]".format(sys.argv[0]))
+        raise ValueError("Usage: {} [TSV_FILE [SUBSET [YEAR]]]".format(sys.argv[0]))
