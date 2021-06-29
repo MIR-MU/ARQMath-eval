@@ -17,7 +17,7 @@ jobs:
           pip install flake8
       - run: |
           flake8
-  flake8:
+  pytype:
     name: Check Typing
     runs-on: ubuntu-latest
     steps:
