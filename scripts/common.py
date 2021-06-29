@@ -122,8 +122,8 @@ def get_ndcg(parsed_run, task, subset, topn=1000, confidence=None):
 
     """
     evaluator = EVALUATORS[subset][task]
-    parsed_run = _remove_nonjudged_topics_and_documents(parsed_run, task, subset)
     parsed_run = _clip_topn(parsed_run, topn)
+    parsed_run = _remove_nonjudged_topics_and_documents(parsed_run, task, subset)
     if not parsed_run:
         return 0.0
     evaluation = evaluator.evaluate(parsed_run)
