@@ -110,7 +110,6 @@ $ git push                                 # publish your new result and the upd
 ``` sh
 $ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.21
 $ python -m arqmath_eval.evaluate MIRMU-task1-Ensemble-auto-both-A.tsv all 2020
->>>>>>> github/master
 0.238, 95% CI: [0.198; 0.278]
 ```
 
