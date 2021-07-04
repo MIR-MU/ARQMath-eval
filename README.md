@@ -1,5 +1,9 @@
-### Description
-#### Tasks
+# ARQMath-eval
+This repository contains code, which you can use to evaluate your system runs
+from the [ARQMath][] competitions.
+
+## Description
+### Tasks
 This repository evaluates the performance of your information retrieval system
 on a number of *tasks*:
 
@@ -18,7 +22,7 @@ The main tasks are:
 - `task1` – Use this task to evaluate your ARQMath task 1 system, and
 - `task2` – Use this task to evaluate your ARQMath task 2 system.
 
-#### Subsets
+### Subsets
 Each task comes with three *subsets*:
 
 - `train` – The training set, which you can use for supervised training of your
@@ -53,8 +57,8 @@ hyperparameter optimization or model selection, you can use the
 - `test-pv211-utils` – The test set, which you currently should only use for
   the final performance estimation of your system.
 
-### Examples
-#### Using the `train` subset to train your supervised system
+## Examples
+### Using the `train` subset to train your supervised system
 
 ``` sh
 $ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.21
@@ -74,7 +78,7 @@ $ python
 0.5876
 ```
 
-#### Using the `validation` subset to compare various parameters of your system
+### Using the `validation` subset to compare various parameters of your system
 
 ``` sh
 $ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.21
@@ -105,7 +109,7 @@ $ git add -u                               # add the updated leaderboard to Git
 $ git push                                 # publish your new result and the updated leaderboard
 ```
 
-#### Using the `all` subset to compute the NDCG' score of an ARQMath submission
+### Using the `all` subset to compute the NDCG' score of an ARQMath submission
 
 ``` sh
 $ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.21
@@ -113,6 +117,32 @@ $ python -m arqmath_eval.evaluate MIRMU-task1-Ensemble-auto-both-A.tsv all 2020
 0.238, 95% CI: [0.198; 0.278]
 ```
 
+## Citing ARQMath-eval
+### Text
+
+NOVOTNÝ, Vít, Petr SOJKA, Michal ŠTEFÁNIK and Dávid LUPTÁK. Three is Better
+than One: Ensembling Math Information Retrieval Systems. *CEUR Workshop
+Proceedings*. Thessaloniki, Greece: M. Jeusfeld c/o Redaktion Sun SITE,
+Informatik V, RWTH Aachen., 2020, vol. 2020, No 2696, p. 1-30. ISSN 1613-0073.
+
+BibTeX
+------
+``` bib
+@inproceedings{mir:mirmuARQMath2020,
+  title = {{Three is Better than One}},
+  author = {V\'{i}t Novotn\'{y} and Petr Sojka and Michal \v{S}tef\'{a}nik and D\'{a}vid Lupt\'{a}k},
+  booktitle = {CEUR Workshop Proceedings: ARQMath task at CLEF conference},
+  publisher = {CEUR-WS},
+  address = {Thessaloniki, Greece},
+  date = {22--25 September, 2020},
+  year = 2020,
+  volume = 2696,
+  pages = {1--30},
+  url = {http://ceur-ws.org/Vol-2696/paper_235.pdf},
+}
+```
+
+ [arqmath]:                    https://www.cs.rit.edu/~dprl/ARQMath/
  [arqmath-task1]:              https://www.cs.rit.edu/~dprl/ARQMath/Task1-answers.html (Task 1: Find Answers)
  [arqmath-task2]:              https://www.cs.rit.edu/~dprl/ARQMath/task2-formulas.html (Task 2: Formula Search)
  [ntcir-11-math-2]:            http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
