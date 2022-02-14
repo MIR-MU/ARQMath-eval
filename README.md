@@ -150,27 +150,3 @@ BibTeX
  [treceval-format]:            https://stackoverflow.com/a/8175382/657401 (How to evaluate a search/retrieval engine using trec_eval?)
  [user votes]:                 https://gitlab.fi.muni.cz/xnovot32/arqmath-data-preprocessing/-/blob/master/scripts/xml_to_qrels_tsv.py
  [pv211-utils]:                https://gitlab.fi.muni.cz/xstefan3/pv211-utils (Utilities for PV211 project)
-
-## Citing ARQMath-eval
-### Text
-
-NOVOTNÝ, Vít, Petr SOJKA, Michal ŠTEFÁNIK and Dávid LUPTÁK. Three is Better
-than One: Ensembling Math Information Retrieval Systems. *CEUR Workshop
-Proceedings*. Thessaloniki, Greece: M. Jeusfeld c/o Redaktion Sun SITE,
-Informatik V, RWTH Aachen., 2020, vol. 2020, No 2696, p. 1-30. ISSN 1613-0073.
-
-### BibTeX
-``` bib
-@inproceedings{mir:mirmuARQMath2020,
-  title = {{Three is Better than One}},
-  author = {V\'{i}t Novotn\'{y} and Petr Sojka and Michal \v{S}tef\'{a}nik and D\'{a}vid Lupt\'{a}k},
-  booktitle = {CEUR Workshop Proceedings: ARQMath task at CLEF conference},
-  publisher = {CEUR-WS},
-  address = {Thessaloniki, Greece},
-  date = {22--25 September, 2020},
-  year = 2020,
-  volume = 2696,
-  pages = {1--30},
-  url = {http://ceur-ws.org/Vol-2696/paper_235.pdf},
-}
-```
