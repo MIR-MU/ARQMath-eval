@@ -82,6 +82,7 @@ RELEVANCE_JUDGEMENTS = {
         'task1': 'qrel_task1_2020.tsv',
         'task1-2020': 'qrel_task1_2020.tsv',
         'task1-2021': 'qrel_task1_2021.tsv',
+        'task1-2022': 'qrel_task1_2022.tsv',
         'task2': 'qrel_task2_2020.tsv',
         'task2-2020': 'qrel_task2_2020.tsv',
         'task2-2021': 'qrel_task2_2021.tsv',
