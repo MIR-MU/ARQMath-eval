@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='arqmath_eval',
-    version='0.0.21',
+    version='0.0.22',
     description='Evaluation of ARQMath systems',
     packages=['arqmath_eval'],
     package_dir={'arqmath_eval': 'scripts'},
@@ -51,6 +51,7 @@ setup(
             'qrel_task1_2020-validation-pv211-utils.tsv',
             'qrel_task1_2021.tsv',
             'qrel_task2_2021.tsv',
+            'qrel_task1_2022.tsv',
         ],
     },
     include_package_data=True,

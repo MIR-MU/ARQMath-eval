@@ -61,7 +61,7 @@ hyperparameter optimization or model selection, you can use the
 ### Using the `train` subset to train your supervised system
 
 ``` sh
-$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.21
+$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.22
 $ python
 >>> from arqmath_eval import get_topics, get_judged_documents, get_ndcg
 >>>
@@ -112,7 +112,7 @@ $ git push                                 # publish your new result and the upd
 ### Using the `all` subset to compute the NDCG' score of an ARQMath submission
 
 ``` sh
-$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.21
+$ pip install --force-reinstall git+https://github.com/MIR-MU/ARQMath-eval@0.0.22
 $ python -m arqmath_eval.evaluate MIRMU-task1-Ensemble-auto-both-A.tsv all 2020
 0.238, 95% CI: [0.198; 0.278]
 ```
